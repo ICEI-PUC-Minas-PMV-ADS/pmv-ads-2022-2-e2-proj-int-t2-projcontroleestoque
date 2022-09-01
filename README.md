@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# Projeto de Controle de Estoque
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto: Desenvolvimento de uma Aplicação Interativa`
 
-`SEMESTRE`
+`2º semestre`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Gabriel Martins Xavier
+* Giovanna Maria Elias Coura
+* Henrique Alexandre Gomes Pinto
+* Igor Henrique Costa Morais
+* Rafael Nascimento Gonçalves
+* Vitor Alexandre Gomes Pinto
 
 ## Orientador
 
-* Nome completo do professor 1
+* José Wilson da Costa
 
 ## Instruções de utilização
 
