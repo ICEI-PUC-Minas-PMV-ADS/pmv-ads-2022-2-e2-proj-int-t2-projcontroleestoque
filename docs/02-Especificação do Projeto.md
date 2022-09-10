@@ -1,103 +1,116 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href="./docs/1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+O problema apresentado e a proposta de resolução desse problema foram levantados e tratados pelos membros da equipe com o estudo e pesquisa sobre o modelo de negócio utilizado por grandes empresas para um controle de estoque eficiente que atenda às necessidades do mercado. 
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+As personas foram levantadas para um melhor o processo de entendimento do problema e definição dos requisitos do sistema, foram baseadas em profissionais do setor de logística através de entrevista e questionário sobre suas necessidades. 
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
-
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+![Persona 1](/docs/img/persona1.png)
+![Persona 2](/docs/img/persona2.png)
+![Persona 3](/docs/img/persona3.png)
+![Persona 4](/docs/img/persona4.png)
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
+A partir do levantamento do perfil e da necessidade de cada persona foram registradas as seguintes histórias de usuário
 
-|EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
-|--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+| EU COMO...  | QUERO| PARA ...                |
+| -------------------- | ---------------------------------- | -------------------------------------- |
+| João   | entrar no aplicativo com meu próprio perfil           | ter acesso a ferramentas que são importantes ao meu uso.                |
+| João        | consultar se existe um determinado produto no estoque                 | prestar um atendimento rápido, sem perder tempo procurando algo que não está em estoque.  |
+| João   |    informações atualizadas sobre a quantidade de determinado produto no estoque  | comunicar ao meu superior quando há falta de determinado produto. |
+| João | buscar produtos similares | atender a determinadas demandas de produtos que possam ser substituídos. |
+| João | ter acesso a informações sobre a localização de um produto  | prestar meu atendimento mais rápido, evitando buscas desnecessárias. |
+| João |  ter acesso a informações sobre a estratégia de saída de determinado produto  | garantir que o produto a sair seja adequado a estratégia da empresa.  |
+| João |  registrar as informações sobre a entrada de produtos ao estoque  | que o setor responsável possa ser capaz de aferir o processo de renovação de estoque.  |
+| João |  ter acesso às informações sobre as possíveis entradas de produtos que podem ocorrer durante meu turno de trabalho  | estar me preparar adequadamente para a tarefa.  |
+| João |  registrar a saída de produtos do estoque  | manter as informações sobre o estoque atualizadas.  |
+| João |  registrar a ocorrência de produtos que não estiverem aptos ao uso  | que os responsáveis possam tomar decisões para garantir o funcionamento da empresa.  |
+| João |  registrar relatórios sobre o inventario do estoque  | que os responsáveis possam ter controle sobre o funcionamento adequado do estoque.  |
+| João |  ser notificado quando for necessário fazer o inventario fora do prazo rotineiro  | garantir que o processo seja realizado adequadamente.  |
+| Maria |  registrar a solicitação de reposição de estoque  | garantir que todos os setores ligados a reposição estejam cientes e tenham informações corretas sobre o procedimento.  |
+| Maria |  a possibilidade de editar uma solicitação de reposição de estoque quando necessário  | garantir que as reposições estejam sempre atualizadas em relação ao processo.  |
+| Maria |  cadastrar, visualizar e alterar informações sobre o fornecedor  | mediar a solução de problemas que venham a ocorrer.  |
+| Maria |  cadastrar, visualizar e alterar informações sobre um determinado produto  | garantir a integridade das informações.  |
+| Maria |  emitir relatórios que possam ser filtrados sobre a reposição de estoque  | visualizar de forma mais ampla o procedimento como um todo.  |
+| Maria |  ser notificada quando uma reposição de estoque ocorrer  | ter controle e auxiliar na tomada de decisões quando problemas ocorrerem.  |
+| Maria |  emitir relatórios de perdas de produtos  | auxiliar no planejamento de reposições futuras.  |
+| Maria |  agendar a execução periódica de inventario  | auxiliar no planejamento de reposições futuras e aferir o funcionamento do estoque da empresa.  |
+| Maria |  agendar a execução extraordinária de inventario  | se adequar a situações extraordinárias no planejamento de reposições futuras e aferir o funcionamento do estoque da empresa.  |
+| Mauro |  aprovar ou rejeitar a inclusão ou alteração das informações sobre produtos  | ter controle sobre os procedimentos e garantir a integridade deles.  |
+| Mauro |  emitir relatórios sobre a saída de produtos passados do estoque  | considerar período em que determinado produto, irá precisar de uma quantidade maior a disposição para evitar ruptura no PDV.  |
+| Priscila |  aprovar ou rejeitar uma solicitação para reposição de estoque  | garantir que o processo ocorra dentro das limitações estratégicas e financeiras da empresa.  |
+| Priscila |  emitir relatórios sobre o balanço de solicitações de reposição de estoque em determinados períodos  | fiscalizar e garantir a lisura do processo de reposição de estoque.  |
+| Priscila |  registrar o pagamento de solicitações de reposição de estoque  | agrupar as informações relacionadas a reposição de estoque em uma única plataforma.  |
+| Priscila |  visualizar informações sobre a data de vencimento para pagamentos de solicitações de reposição  | garantir que os compromissos sejam honrados e os setores responsáveis possam argumentar com o fornecedor em caso de problemas.  |
+| Priscila |  registar e controlar formas de pagamento para uma determinada solicitação de reposição  | ter controle sobre demandas que possam se prolongar.  |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
 
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+## Requisitos do Projeto
 
-## Requisitos
+Os requisitos do sistema são de extrema importância para um bom desenvolvimento do projeto e para atender de maneira satisfatória os usuários do sistema. Os requisitos foram levantados com embasamento nas histórias de usuários. 
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
+### Requisitos Funcionais  
 
-### Requisitos Funcionais
+A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade em que os mesmos devem ser entregues. 
 
-|ID    | Descrição do Requisito  | Prioridade |
-|------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+| ID     | Descrição do Requisito                  | Prioridade |
+| ------ | --------------------------------------- | ---------- |
+| RF-001 | O sistema deve possuir sistema de Cadastro e de Login  | ALTA       |
+| RF-002 | O sistema deve receber o Cadastro de novos produtos, que contenham informações como (localização do produto, categorias e quantidade por embalagem)    | ALTA      |
+| RF-003 |  O sistema deve possuir um meio de consulta para encontrar os produtos por nome, categoria, código ou fornecedor    | ALTA      |
+| RF-004 | O sistema deve permitir visualizar as informações dos produtos    | ALTA      |
+| RF-005 | O sistema deve permitir alteração das informações do produto    | ALTA      |
+| RF-006 |  O sistema deve permitir ao Superior aprovar ou rejeitar alterações nas informações dos produtos    | ALTA      |
+| RF-007 | O sistema deve receber entrada e saída de produtos e modificar na quantidade deste    | ALTA      |
+| RF-008 |  O sistema deve gerar relatórios após o usuário fazer Login com as reposições e saída de produtos    | ALTA      |
+| RF-009 | O sistema deve gerar relatório sobre o inventário para o Superior     | ALTA      |
+| RF-010 | O sistema deve registrar itens que possua má qualidade     | MÉDIA      |
+| RF-011 | O sistema deve informar quando algum produto estiver próximo da validade    | ALTA      |
+| RF-012 | O sistema deve informar quando um produto estiver com baixa quantidade    | ALTA      |
+| RF-013 | O sistema deve permitir agendar execução periódica do inventário    | BAIXA      |
+| RF-014 | O sistema deve informar a perda de produtos    | MÉDIA      |
+| RF-015 | O sistema deve permitir cadastrar, visualizar e alterar informações sobre o fornecedor   | MÉDIA      |
+| RF-016 | O sistema deve registrar a solicitação de reposição   | ALTA      |
+| RF-017 | O sistema deve permitir a edição da reposição de estoque    | ALTA      |
+| RF-018 | O sistema deve permitir ao Supervisor aprovar ou rejeitar a solicitação de reposição    | ALTA      |
+| RF-019 | O sistema deve informar a situação do pagamento da reposição     | MÉDIA      |
+
 
 ### Requisitos não Funcionais
 
-|ID     | Descrição do Requisito  |Prioridade |
-|-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender. 
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+| ID      | Descrição do Requisito                                            | Prioridade |
+| ------- | ----------------------------------------------------------------- | ---------- |
+| RNF-001 | O sistema deve funcionar nos principais navegadores do mercado (Chrome, Firefox, Edge, Brave...)  | ALTA      |
+| RNF-002 | O sistema deve ser responsivo em celulares, tablets e desktop/notebook  | ALTA      |
+| RNF-003 |  O sistema deve seguir as diretrizes de acessibilidade (WCAG)  | ALTA      |
+| RNF-004 | O sistema deve encriptar a senha do usuário no banco de dados  | ALTA      |
+| RNF-005 | O sistema deve gerenciar permissões de acordo com o cargo do usuário informado no momento do cadastro  | ALTA      |
+| RNF-006 |  O cadastro de usuário deve seguir a Lei Geral de Proteção de Dados Pessoais (LGPD)  | ALTA      |
+| RNF-007 | O tempo de carregamento da página deve ser menor que 5 segundos em 90% dos casos  | MÉDIA      |
+| RNF-008 |  O tempo de carregamento de pesquisas e filtros do sistema deve ser menor que 5 segundos em 90% dos casos  | MÉDIA |
+| RNF-009 | O tempo de geração de relatório deve ser menor que 1 minuto em 90% dos casos  | MÉDIA      |
+| RNF-010 | O sistema deve permitir, simultaneamente, a quantidade de usuários estabelecido em contrato com o cliente  | ALTA      |
+| RNF-011 | O sistema deve permitir exportar relatório  | MÉDIA      |
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir. 
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
+| ID  | Restrição                                             |
+| --- | ----------------------------------------------------- |
+| RE-01   | A Etapa 1 do projeto deverá ser entregue até dia 11 de setembro de 2022  |
+| RE-02   | A documentação do projeto deverá estar disponível no Github         |
 
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+Segue na imagem abaixo o diagrama de caso de uso que retrata de forma abstrata as principais funções a serem desenvolvidas pelo sistema, demonstrando a interação entre os usuários (atores) e o sistema. 
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+![Diagrama de casos de uso](/docs/img/diagrama-casos-de-uso.png)
+*O diagrama foi criado utilizando a ferramenta de edição no site SmartDrawn.*
