@@ -1,6 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="./docs/1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
+<span style="color:red">Pré-requisitos: <a href="/1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
 O problema apresentado e a proposta de resolução desse problema foram levantados e tratados pelos membros da equipe com o estudo e pesquisa sobre o modelo de negócio utilizado por grandes empresas para um controle de estoque eficiente que atenda às necessidades do mercado. 
 
@@ -112,5 +112,5 @@ As questões que limitam a execução desse projeto e que se configuram como obr
 
 Segue na imagem abaixo o diagrama de caso de uso que retrata de forma abstrata as principais funções a serem desenvolvidas pelo sistema, demonstrando a interação entre os usuários (atores) e o sistema. 
 
-![Diagrama de casos de uso](/docs/img/diagrama-casos-de-uso.png)
+![Diagrama de casos de uso](/docs/img/diagrama-casos-de-uso.png)<br>
 *O diagrama foi criado utilizando a ferramenta de edição no site SmartDrawn.*
