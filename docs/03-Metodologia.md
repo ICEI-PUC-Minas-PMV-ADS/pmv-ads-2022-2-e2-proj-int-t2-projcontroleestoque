@@ -20,10 +20,7 @@ O projeto segue a seguinte convenção para o nome de branches:
 Quanto à gerência de issues, o projeto adota a seguinte convenção para
 etiquetas:
 
-- `documentation`: melhorias ou acréscimos à documentação
-- `bug`: uma funcionalidade encontra-se com problemas
-- `artefatos de dev`: são procedimentos que irão gerar artefatos que vão direcionar o desenvolvimento
-- `feature`: uma nova funcionalidade precisa ser introduzida
+<img src="img/Documentacao_da_metodologia_etiqueta.png" />
 
 Discuta como a configuração do projeto foi feita na ferramenta de versionamento escolhida. Exponha como a gerência de tags, merges, commits e branchs é realizada. Discuta como a gerência de issues foi realizada.
 
