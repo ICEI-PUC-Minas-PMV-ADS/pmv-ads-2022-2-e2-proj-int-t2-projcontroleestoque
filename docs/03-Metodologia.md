@@ -7,7 +7,7 @@ Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Defini�
 
 ## Controle de Versão
 
-A ferramenta de controle de versão adotada no projeto foi o
+Para controlar o processo de desenvolvimento do projeto, a ferramenta de controle de versão adotada foi o
 [Git](https://git-scm.com/), sendo que o [Github](https://github.com)
 foi utilizado para hospedagem do repositório.
 
