@@ -41,7 +41,7 @@ A partir do levantamento do perfil e da necessidade de cada persona foram regist
 | Maria |  agendar a execução periódica de inventario  | auxiliar no planejamento de reposições futuras e aferir o funcionamento do estoque da empresa.  |
 | Maria |  agendar a execução extraordinária de inventario  | se adequar a situações extraordinárias no planejamento de reposições futuras e aferir o funcionamento do estoque da empresa.  |
 | Mauro |  aprovar ou rejeitar a inclusão ou alteração das informações sobre produtos  | ter controle sobre os procedimentos e garantir a integridade deles.  |
-| Mauro |  emitir relatórios sobre a saída de produtos passados do estoque  | considerar período em que determinado produto, irá precisar de uma quantidade maior a disposição para evitar ruptura no PDV.  |
+| Mauro |  emitir relatórios sobre a saída de produtos do estoque  | considerar período em que determinado produto, irá precisar de uma quantidade maior a disposição para evitar ruptura no PDV.  |
 | Priscila |  aprovar ou rejeitar uma solicitação para reposição de estoque  | garantir que o processo ocorra dentro das limitações estratégicas e financeiras da empresa.  |
 | Priscila |  emitir relatórios sobre o balanço de solicitações de reposição de estoque em determinados períodos  | fiscalizar e garantir a lisura do processo de reposição de estoque.  |
 | Priscila |  registrar o pagamento de solicitações de reposição de estoque  | agrupar as informações relacionadas a reposição de estoque em uma única plataforma.  |
