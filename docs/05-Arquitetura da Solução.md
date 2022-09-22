@@ -17,11 +17,9 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.
 
-Sugestão de ferramentas para geração deste artefato: LucidChart e Draw.io.
+Sugestão de ferramentas para geração deste artefato: LucidChart.
 
-A referência abaixo irá auxiliá-lo na geração do artefato “Modelo ER”.
-
-> - [Como fazer um diagrama entidade relacionamento | Lucidchart](https://www.lucidchart.com/pages/pt/como-fazer-um-diagrama-entidade-relacionamento)
+![image](https://user-images.githubusercontent.com/103543979/191823925-35d7cf18-9738-40e9-825e-edc48d8eab46.png)
 
 ## Projeto da Base de Dados
 
