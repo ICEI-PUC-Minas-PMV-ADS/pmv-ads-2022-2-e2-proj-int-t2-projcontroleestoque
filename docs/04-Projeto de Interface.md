@@ -33,7 +33,7 @@ descritos a seguir. São eles:
 
 ### Tela - Login
 
-<div style="border: 1px solid #aaa"><img src="img/wireframe_login.png" width="800"></div>
+<p style="border: 1px solid #aaa"><img src="img/wireframe_login.png" width="800"></p>
 
 ### Tela - Inventario(Controle)
 
