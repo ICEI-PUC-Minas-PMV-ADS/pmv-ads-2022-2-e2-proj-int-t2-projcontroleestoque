@@ -2,7 +2,7 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>
 
-Segue abaixo projeto de Plano de Teste de Software feito segundo a metodologia de [BDD](https://coodesh.com/blog/candidates/metodologias/bdd-na-pratica-entenda-o-que-e-e-como-funciona/) (Behavior Driven Design)
+Segue abaixo projeto de Plano de Teste de Software feito seguindo a metodologia de [BDD](https://coodesh.com/blog/candidates/metodologias/bdd-na-pratica-entenda-o-que-e-e-como-funciona/) (Behavior Driven Design)
 
 
 <h2>Requisitos Funcionais</h2>
