@@ -49,8 +49,8 @@ Discuta como a configuração do projeto foi feita na ferramenta de versionament
 
 A equipe utiliza metodologia ágil baseada em scrum para definição e organização do processo de desenvolvimento do software. Distribuída da seguinte forma:
 
-- Scrum Master: A Definir<br>
-- Product Owner: A Definir<br>
+- Scrum Master: Igor Morais<br>
+- Product Owner: Vitor Gomes<br>
 - Equipe de Desenvolvimento: Igor Morais, Vitor Gomes, Henrique Gomes, Giovanna Coura, Gabriel Xavier, Rafael Gonçalves.
 
 
