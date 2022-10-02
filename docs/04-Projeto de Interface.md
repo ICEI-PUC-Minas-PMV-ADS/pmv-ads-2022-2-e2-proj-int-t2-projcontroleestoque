@@ -35,26 +35,66 @@ descritos a seguir. São eles:
 
 <img src="img/wireframe_login.png" width="800">
 
-### Tela - Inventario
+### Tela - Inventario(Controle)
 
 <img src="img/wireframe_inventario.png" width="800">
 
-### Tela - Agendar inventario
+### Tela - Agendar inventario(Controle)
 
 <img src="img/wireframe_inventario_agendar.png" width="800">
 
-### Tela - Fornecedor
+### Tela - Fornecedor(Controle)
 
 <img src="img/wireframe_fornecedor.png" width="800">
 
-### Tela - Detalhes fornecedor
+### Tela - Detalhes fornecedor(Controle)
 
 <img src="img/wireframe_fornecedor_detalhes.png" width="800">
 
-### Tela - Cadastrar produto do fornecedor
+### Tela - Cadastrar produto do fornecedor(Controle)
 
 <img src="img/wireframe_fornecedor_cadastrar_produto.png" width="800">
 
-### Tela - Reposição de estoque
+### Tela - Reposição de estoque(Controle)
 
 <img src="img/wireframe_reposicao_de_estoque.png" width="800">
+
+### Tela - Cadastrar reposição de estoque(Controle)
+
+<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+
+### Tela - Cadastrar reposição de estoque(Controle)
+
+<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+
+### Tela - Editar reposição de estoque(Controle)
+
+<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+
+### Tela - Relatorio
+
+<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+
+### Tela - Reposição de estoque(Gerencia Controle)
+
+<img src="img/wireframe_reposicao_de_estoque_gerencia.png" width="800">
+
+### Tela - Reposição de estoque avaliação(Gerencia Controle)
+
+<img src="img/wireframe_reposicao_de_estoque_aprovar.png" width="800">
+
+### Tela - Reposição de estoque(Financeiro)
+
+<img src="img/wireframe_reposicao_de_estoque_financeiro.png" width="800">
+
+### Tela - Reposição de estoque avaliação(Financeiro)
+
+<img src="img/wireframe_reposicao_de_estoque_aprovar_financeiro.png" width="800">
+
+### Tela - Pagamento(Financeiro)
+
+<img src="img/wireframe_pagamento.png" width="800">
+
+### Tela - Parcelamento(Financeiro)
+
+<img src="img/wireframe_parcelas.png" width="800">
