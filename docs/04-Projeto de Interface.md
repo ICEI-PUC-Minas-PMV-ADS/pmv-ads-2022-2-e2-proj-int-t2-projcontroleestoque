@@ -22,8 +22,6 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 ## Wireframes
 
-## Wireframes
-
 As telas do sistema apresentam uma estrutura comum que é apresentada na Figura X. Nesta estrutura, existem 3 grandes blocos, 
 descritos a seguir. São eles:
 
@@ -33,6 +31,30 @@ descritos a seguir. São eles:
 
 <img src="img/standard_layout.jpg" width="800">
 
-### Tela - Home-Page
+### Tela - Login
 
+<img src="img/wireframe_login.png" width="800">
 
+### Tela - Inventario
+
+<img src="img/wireframe_inventario.png" width="800">
+
+### Tela - Agendar inventario
+
+<img src="img/wireframe_inventario_agendar.png" width="800">
+
+### Tela - Fornecedor
+
+<img src="img/wireframe_fornecedor.png" width="800">
+
+### Tela - Detalhes fornecedor
+
+<img src="img/wireframe_fornecedor_detalhes.png" width="800">
+
+### Tela - Cadastrar produto do fornecedor
+
+<img src="img/wireframe_fornecedor_cadastrar_produto.png" width="800">
+
+### Tela - Reposição de estoque
+
+<img src="img/wireframe_reposicao_de_estoque.png" width="800">
