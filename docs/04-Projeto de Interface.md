@@ -33,68 +33,68 @@ descritos a seguir. São eles:
 
 ### Tela - Login
 
-<p style="border: 1px solid #aaa"><img src="img/wireframe_login.png" width="800"></p>
+<table><tr><td><img src="img/wireframe_login.png" width="800" /></td></tr></table>
 
 ### Tela - Inventario(Controle)
 
-<img src="img/wireframe_inventario.png" width="800">
+<table><tr><td><img src="img/wireframe_inventario.png" width="800" /></td></tr></table>
 
 ### Tela - Agendar inventario(Controle)
 
-<img src="img/wireframe_inventario_agendar.png" width="800">
+<table><tr><td><img src="img/wireframe_inventario_agendar.png" width="800" /></td></tr></table>
 
 ### Tela - Fornecedor(Controle)
 
-<img src="img/wireframe_fornecedor.png" width="800">
+<table><tr><td><img src="img/wireframe_fornecedor.png" width="800" /></td></tr></table>
 
 ### Tela - Detalhes fornecedor(Controle)
 
-<img src="img/wireframe_fornecedor_detalhes.png" width="800">
+<table><tr><td><img src="img/wireframe_fornecedor_detalhes.png" width="800" /></td></tr></table>
 
 ### Tela - Cadastrar produto do fornecedor(Controle)
 
-<img src="img/wireframe_fornecedor_cadastrar_produto.png" width="800">
+<table><tr><td><img src="img/wireframe_fornecedor_cadastrar_produto.png" width="800" /></td></tr></table>
 
 ### Tela - Reposição de estoque(Controle)
 
-<img src="img/wireframe_reposicao_de_estoque.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque.png" width="800" /></td></tr></table>
 
 ### Tela - Cadastrar reposição de estoque(Controle)
 
-<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800" /></td></tr></table>
 
 ### Tela - Cadastrar reposição de estoque(Controle)
 
-<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800" /></td></tr></table>
 
 ### Tela - Editar reposição de estoque(Controle)
 
-<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800" /></td></tr></table>
 
 ### Tela - Relatorio
 
-<img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_cadastrar.png" width="800" /></td></tr></table>
 
 ### Tela - Reposição de estoque(Gerencia Controle)
 
-<img src="img/wireframe_reposicao_de_estoque_gerencia.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_gerencia.png" width="800" /></td></tr></table>
 
 ### Tela - Reposição de estoque avaliação(Gerencia Controle)
 
-<img src="img/wireframe_reposicao_de_estoque_aprovar.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_aprovar.png" width="800" /></td></tr></table>
 
 ### Tela - Reposição de estoque(Financeiro)
 
-<img src="img/wireframe_reposicao_de_estoque_financeiro.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_financeiro.png" width="800" /></td></tr></table>
 
 ### Tela - Reposição de estoque avaliação(Financeiro)
 
-<img src="img/wireframe_reposicao_de_estoque_aprovar_financeiro.png" width="800">
+<table><tr><td><img src="img/wireframe_reposicao_de_estoque_aprovar_financeiro.png" width="800" /></td></tr></table>
 
 ### Tela - Pagamento(Financeiro)
 
-<img src="img/wireframe_pagamento.png" width="800">
+<table><tr><td><img src="img/wireframe_pagamento.png" width="800" /></td></tr></table>
 
 ### Tela - Parcelamento(Financeiro)
 
-<img src="img/wireframe_parcelas.png" width="800">
+<table><tr><td><img src="img/wireframe_parcelas.png" width="800" /></td></tr></table>
