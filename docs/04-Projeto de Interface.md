@@ -35,6 +35,38 @@ descritos a seguir. São eles:
 
 <table><tr><td><img src="img/wireframe_login.png" width="800" /></td></tr></table>
 
+### Tela - Movimentação de estoque
+
+<table><tr><td><img src="img/wireframe_movimentacao_estoque.png" width="800" /></td></tr></table>
+
+### Tela - Notificações
+
+<table><tr><td><img src="img/wireframe_notificacoes.png" width="800" /></td></tr></table>
+
+### Tela - Lista de produtos
+
+<table><tr><td><img src="img/wireframe_lista_produtos.png" width="800" /></td></tr></table>
+
+### Tela - Incluir produto
+
+<table><tr><td><img src="img/wireframe_incluir_produto.png" width="800" /></td></tr></table>
+
+### Tela - Alterar produto
+
+<table><tr><td><img src="img/wireframe_alterar_quantidade.png" width="800" /></td></tr></table>
+
+### Tela - Excluir produto
+
+<table><tr><td><img src="img/wireframe_login.png" width="800" /></td></tr></table>
+
+### Tela - Inventario
+
+<table><tr><td><img src="img/wireframe_inventario.png" width="800" /></td></tr></table>
+
+### Tela - Inventario alterar quantidade
+
+<table><tr><td><img src="img/wireframe_alterar_quantidade.png" width="800" /></td></tr></table>
+
 ### Tela - Inventario(Controle)
 
 <table><tr><td><img src="img/wireframe_inventario.png" width="800" /></td></tr></table>
