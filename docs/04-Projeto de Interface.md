@@ -53,7 +53,7 @@ descritos a seguir. São eles:
 
 ### Tela - Alterar produto
 
-<table><tr><td><img src="img/wireframe_alterar_produto.png" width="800" /></td></tr></table>
+<table><tr><td><img src="img/wireframe_alterar_quantidade.png" width="800" /></td></tr></table>
 
 ### Tela - Excluir produto
 

@@ -1,0 +1,22 @@
+﻿@{
+    var products = ViewData["products"] as Product[];
+
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Teste</h1>
+    <br />
+    <h3>Banco de dados(v0.1.2)</h3>
+    <hr />
+    <div>
+        @if (products != null)
+        {
+            @foreach (Product product in products)
+            {
+                <div>@product.Name</div>
+            }
+
+        }
+    </div>
+</div>
