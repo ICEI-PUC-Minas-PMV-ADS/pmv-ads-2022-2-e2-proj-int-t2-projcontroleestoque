@@ -18,12 +18,20 @@ namespace ProjControleEstoque.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8")
+                    Nome = table.Column<string>(type: "varchar", nullable: false),
+                    Descricao = table.Column<string>(type: "varchar(200)"),
+                    Quantidade = table.Column<int>(type: "int", defaultValue: 0),
+                    FornecedorId = table.Column<int>(type: "int", nullable: true),
+                    Localizacao = table.Column<string>(type: "varchar(200)"),
+                    Tags = table.Column<string>(type: "varchar(200)"),
+                    EstrategiaConsumo = table.Column<string>(type: "varchar(200)"),
+                    Criado = table.Column<DateTime>(type: "TIMESTAMP", defaultValueSql: "CURRENT_TIMESTAMP"),
+                    Validade = table.Column<DateTime>(type: "TIMESTAMP")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                    table.ForeignKey("FK_ProductsSuppliers", x => x.FornecedorId, "Suppliers", principalColumn: "Id", onUpdate: ReferentialAction.Cascade, onDelete: ReferentialAction.SetNull);
                 })
                 .Annotation("MySql:CharSet", "utf8");
         }

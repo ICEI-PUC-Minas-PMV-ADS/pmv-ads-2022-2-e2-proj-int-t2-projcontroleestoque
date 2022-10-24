@@ -10,6 +10,6 @@ namespace ProjControleEstoque.Context
 
         }
 
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product>? Products { get; set; }
     }
 }

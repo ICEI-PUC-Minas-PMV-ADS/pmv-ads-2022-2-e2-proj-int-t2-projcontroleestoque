@@ -19,8 +19,6 @@ namespace ProjControleEstoque.Controllers
 
         public IActionResult Index()
         {
-            if (_appDbContext.Products.Any()) {
-            }
             var products = _appDbContext.Products?.ToArray();
             ViewData["products"] = products;
             return View();

@@ -5,6 +5,6 @@ namespace ProjControleEstoque.QueryParameters
     public class ProductParameters
     {
         [BindRequired]
-        public string ProductName { get; set; }
+        public string? ProductName { get; set; }
     }
 }
