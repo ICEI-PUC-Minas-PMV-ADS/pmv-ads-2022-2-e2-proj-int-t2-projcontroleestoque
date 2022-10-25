@@ -27,7 +27,7 @@ namespace ProjControleEstoque.Controllers
         [HttpGet]
         public IActionResult AddProduct([FromQuery] ProductParameters productParams)
         {
-            Product product = new Product { Name = productParams.ProductName };
+            Product product = new Product { Nome = productParams.ProductName };
 
             _appDbContext.Add(product);
             _appDbContext.SaveChanges();
