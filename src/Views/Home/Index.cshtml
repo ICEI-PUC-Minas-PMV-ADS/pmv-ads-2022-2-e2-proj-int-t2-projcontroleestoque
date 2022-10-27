@@ -1,5 +1,5 @@
 ﻿@{
-    var products = ViewData["products"] as Product[];
+    var product = ViewData["product"] as Product;
 
     ViewData["Title"] = "Index";
 }
@@ -9,14 +9,9 @@
     <br />
     <h3>Banco de dados(v0.1.2)</h3>
     <hr />
-    <div>
-        @if (products != null)
-        {
-            @foreach (Product product in products)
-            {
-                <div>@product.Nome</div>
-            }
-
-        }
-    </div>
+    @if (product != null)
+    {
+        <p>@product.Nome</p>
+        <p>@product.Descricao</p>
+    }
 </div>

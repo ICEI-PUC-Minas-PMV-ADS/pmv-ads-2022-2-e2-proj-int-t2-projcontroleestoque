@@ -8,7 +8,7 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
                 
-        var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
+        var mySQLConnection = builder.Configuration.GetConnectionString("DefaultConnection");
 
         builder.Services.AddDbContext<AppDbContext>(options =>
         {

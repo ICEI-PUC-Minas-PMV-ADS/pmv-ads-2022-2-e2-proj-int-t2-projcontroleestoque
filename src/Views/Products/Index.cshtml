@@ -1,0 +1,132 @@
+﻿@using Microsoft.AspNetCore.Html
+@{
+    var products = ViewData["products"] as Product[];
+    int totalCount = (ViewData["pagination_totalCount"] as int?).GetValueOrDefault(0);
+    int offset = (ViewData["pagination_offset"] as int?).GetValueOrDefault(0);
+    int pageCount = (ViewData["pagination_pageCount"] as int?).GetValueOrDefault(0);
+
+    ViewData["Title"] = "Index";
+}
+
+@functions
+{
+    IHtmlContent GenerateTooltip(string? label) {
+        return Html.Raw(String.Format("data-toggle='tooltip' data-placement='top' title='{0}'", label));
+    }
+}
+
+<style>
+    .table-field-nome {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-descricao {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-quantidade {
+        max-width: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-localizacao {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-tags {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-estategia-consumo {
+        max-width: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-criado {
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-validade {
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .c-product-row, .c-product-row > td {
+        cursor: pointer;
+    }
+</style>
+
+<div class="d-flex justify-content-end my-4">
+    <button
+        class="btn btn-primary"
+        style="box-shadow: 0 0 1rem #aaa">
+        Novo produto
+    </button>
+</div>
+
+<div class="p-4" style="background-color: #ededed; border-radius: 1rem; box-shadow: 0 0 1rem #aaa">
+    <h3>Produtos</h3>
+    <hr />
+
+    @if (products != null && products.Length > 0)
+    {
+        <table id="products" class="table table-hover table-sm" style="background-color: white; border-radius: 0.25rem">
+            <thead>
+                <tr>
+                    <th class="table-field-nome" @GenerateTooltip("Nome")>Nome</th>
+                    <th class="table-field-descricao" @GenerateTooltip("Descrição")>Descrição</th>
+                    <th class="table-field-quantidade" @GenerateTooltip("Quantidade")>Quantidade</th>
+                    <th class="table-field-localizacao" @GenerateTooltip("Localização")>Localização</th>
+                    <th class="table-field-tags" @GenerateTooltip("Tags")>Tags</th>
+                    <th class="table-field-estategia-consumo" @GenerateTooltip("Estrategia")>Estrategia</th>
+                    <th class="table-field-validade" @GenerateTooltip("Validade")>Validade</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in products)
+                {
+                    <tr data-product-id="@p.Id" class="c-product-row">
+                        <td class="table-field-nome" @GenerateTooltip(p.Nome)>@p.Nome</td>
+                        <td class="table-field-descricao" @GenerateTooltip(p.Descricao)>@p.Descricao</td>
+                        <td class="table-field-quantidade" @GenerateTooltip(p.Quantidade.ToString())>@p.Quantidade</td>
+                        <td class="table-field-localizacao" @GenerateTooltip(p.Localizacao)>@p.Localizacao</td>
+                        <td class="table-field-tags" @GenerateTooltip(p.Tags)>@p.Tags</td>
+                        <td class="table-field-estategia-consumo" @GenerateTooltip(p.EstrategiaConsumo)>@p.EstrategiaConsumo</td>
+                        <td class="table-field-validade" @GenerateTooltip(p.Validade?.ToString("dd/MM/yyyy"))>@p.Validade?.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8" style="text-align: right">
+                        Exibindo <b>@(offset + 1)</b> a <b>@(Math.Min(pageCount, totalCount) + offset)</b> registros de <b>@totalCount</b> resultados
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    }
+    else
+    {
+        <h4>Não foram encontrados resultados</h4>
+    }
+</div>
