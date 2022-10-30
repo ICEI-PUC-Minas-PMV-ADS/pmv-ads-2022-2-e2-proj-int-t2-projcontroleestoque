@@ -8,7 +8,6 @@
         public int Quantidade { get; set; }
         public string? Localizacao { get; set; }
         public string? Tags { get; set; }
-        public int? FornecedorId { get; set; }
         public string? EstrategiaConsumo { get; set; }
         public DateTime? Criado { get; set; }
         public DateTime? Validade { get; set; }

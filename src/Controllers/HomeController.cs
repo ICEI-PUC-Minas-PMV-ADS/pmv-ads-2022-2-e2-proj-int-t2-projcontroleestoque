@@ -3,7 +3,6 @@ using ProjControleEstoque.Context;
 using ProjControleEstoque.Models;
 using ProjControleEstoque.QueryParameters;
 using System.Diagnostics;
-using System.IO;
 
 namespace ProjControleEstoque.Controllers
 {
@@ -18,13 +17,10 @@ namespace ProjControleEstoque.Controllers
             _appDbContext = appDbContext;
         }
 
-        public IActionResult Index([FromQuery] int? productId)
+        public IActionResult Index()
         {
-            if (productId != null)
-            {
-                var product = _appDbContext.Products?.Where(x => x.Nome == "Pano de prato").First();
-                ViewData["product"] = product;
-            }
+            var products = _appDbContext.Products?.ToArray();
+            ViewData["products"] = products;
             return View();
         }
 

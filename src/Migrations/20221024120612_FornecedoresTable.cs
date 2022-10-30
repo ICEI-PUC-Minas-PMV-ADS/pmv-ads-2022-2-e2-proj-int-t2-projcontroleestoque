@@ -15,7 +15,6 @@ namespace ProjControleEstoque.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Nome = table.Column<string>(type: "varchar(100)"),
                     Endereco = table.Column<string>(type: "varchar(100)"),
                     Telefone = table.Column<string>(type: "varchar(50)"),
                     Email = table.Column<string>(type: "varchar(200)"),
