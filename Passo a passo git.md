@@ -1,12 +1,14 @@
 # Passo a passo do git.
 
-## Sempre antes de fazer qualquer alteração no codigo e recomendavel usar o seguinte comando:
+### Importante: Os comandos devem ser executados na raiz do projeto na pasta: pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque
+
+## Sempre antes de fazer qualquer alteração no codigo
 
 **git pull**
 
 Descrição: Atualiza o repositorio local com as informações do repositorio remoto.
 
-## Sempre que for upar o codigo para o git seguir esta sequencia:
+## Sempre que for upar o codigo para o git seguir esta sequencia
 
 **git pull**
 
