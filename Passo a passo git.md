@@ -1,6 +1,6 @@
 # Passo a passo do git.
 
-### Importante: Os comandos devem ser executados na raiz do projeto na pasta: pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque
+**Importante:** Os comandos devem ser executados na raiz do projeto na pasta: **pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque**
 
 ## Sempre antes de fazer qualquer alteração no codigo
 
