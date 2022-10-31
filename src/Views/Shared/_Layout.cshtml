@@ -9,13 +9,21 @@
     <link rel="stylesheet" href="~/ProjControleEstoque.styles.css" asp-append-version="true" />
 </head>
 <body>
+    <nav class="nav flex-column">
+        <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+        <a class="nav-link" asp-controller="Product" asp-action="Index">Product</a>
+        <a class="nav-link" asp-controller="Products" asp-action="Index">List of Products</a>
+        <a class="nav-link" asp-controller="User" asp-action="Index">User</a>
+    </nav>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid d-flex justify-content-center">
-                <div>Header</div>
+                <div></div>
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
