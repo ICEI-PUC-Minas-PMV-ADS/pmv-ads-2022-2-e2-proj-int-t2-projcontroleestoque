@@ -2,6 +2,8 @@
 
 **Importante:** Os comandos devem ser executados na raiz do projeto na pasta: **pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque**
 
+**Importante:** Sempre abrir o projeto pelo arquivo **ProjControleEstoque.sln** na pasta **pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque\src**
+
 ## Sempre antes de fazer qualquer alteração no codigo
 
 **git pull**
