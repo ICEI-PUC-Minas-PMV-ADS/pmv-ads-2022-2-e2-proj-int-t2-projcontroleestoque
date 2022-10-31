@@ -1,12 +1,12 @@
-#Passo a passo do git.
+# Passo a passo do git.
 
-##Sempre antes de fazer qualquer alteração no codigo e recomendavel usar o seguinte comando:
+## Sempre antes de fazer qualquer alteração no codigo e recomendavel usar o seguinte comando:
 
 **git pull**
 
 Descrição: Atualiza o repositorio local com as informações do repositorio remoto.
 
-##Sempre que for upar o codigo para o git seguir esta sequencia:
+## Sempre que for upar o codigo para o git seguir esta sequencia:
 
 **git pull**
 
