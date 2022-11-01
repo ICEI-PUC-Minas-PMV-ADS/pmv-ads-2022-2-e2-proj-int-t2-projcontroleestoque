@@ -13,7 +13,8 @@ namespace ProjControleEstoque.Controllers
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
-
+      
+        
         public ProductController(AppDbContext context)
         {
             _context = context;
@@ -28,6 +29,7 @@ namespace ProjControleEstoque.Controllers
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            
             if (id == null || _context.Products == null)
             {
                 return NotFound();

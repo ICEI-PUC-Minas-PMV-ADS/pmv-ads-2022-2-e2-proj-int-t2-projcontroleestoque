@@ -36,7 +36,7 @@
 
           <div class="mb-3">
             <label for="confirmaSenha" class="form-label">Comfirme sua Senha </label>
-            <input type="password" class="form-control" id="confirmaSenha" >
+            <input type="password" class="form-control" id="confirmaSenha" required>
           </div>
 
           <div class="mb-3">
@@ -61,12 +61,29 @@
               </div>
           </div>
           
-          <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+          <button type="submit" class="btn btn-primary btn-lg" id="btnCadastrar">Cadastrar</button>
           <button type="button" class="btn btn-primary btn-lg" id="checkEmail"  >Checar Email</button>
 
 
         </form>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          let validarSenha = document.getElementById("confirmaSenha")
+          let senha = document.getElementById("senha")
+          
+          validarSenha.addEventListener("focusout",() => {
+              if (senha.value != validarSenha.value )
+            {
+              alert("A validação da Senha está Incorreto, Entre com a senha Novamente!!!")
+              validarSenha.value = "";           
+            }
+          })
+        })
+    </script>
+
+
     <script>
       document.addEventListener("DOMContentLoaded",  () => { 
         let validarEmailBtn = document.getElementById("checkEmail")

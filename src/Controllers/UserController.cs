@@ -31,7 +31,6 @@ namespace ProjControleEstoque.Controllers
 
             } 
 
-
             _appDbContext.Add(user);
             _appDbContext.SaveChanges();
             return View("Index");
@@ -54,10 +53,11 @@ namespace ProjControleEstoque.Controllers
             return Ok(Json(new { status = 200}));
 
         }
+
         public IActionResult Index([FromQuery] string nome)
         {
 
-            ViewData["Message"] = nome;
+            ViewData["message"] = nome;
             return View();
         }
 
