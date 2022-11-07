@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjControleEstoque.Context;
 
@@ -10,9 +11,10 @@ using ProjControleEstoque.Context;
 namespace ProjControleEstoque.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221107015013_FixEntitties")]
+    partial class FixEntitties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +36,7 @@ namespace ProjControleEstoque.Migrations
                     b.Property<string>("EstrategiaConsumo")
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("FornecedorId")
+                    b.Property<int>("FornecedorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Localizacao")
@@ -120,7 +122,9 @@ namespace ProjControleEstoque.Migrations
                 {
                     b.HasOne("ProjControleEstoque.Models.Supplier", "Fornecedor")
                         .WithMany("Products")
-                        .HasForeignKey("FornecedorId");
+                        .HasForeignKey("FornecedorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Fornecedor");
                 });

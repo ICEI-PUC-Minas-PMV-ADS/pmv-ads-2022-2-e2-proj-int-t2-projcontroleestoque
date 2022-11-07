@@ -76,17 +76,21 @@
     }
 </style>
 
-<div class="d-flex justify-content-end my-4">
-    <a asp-controller="Product" asp-action="Create">
-        <button
-            class="btn btn-primary"
-            style="box-shadow: 0 0 1rem #aaa">
-                Novo produto
-        </button>
-    </a>
+<div class="d-flex justify-content-between align-items-center my-4 p-2" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
+    <div class="me-2" style="flex-grow: 1">
+        <input type="text" class="form-control" placeholder="Buscar" id="searchInput" />
+    </div>
+
+    <div class="d-flex justify-content-end ms-2">
+        <a asp-controller="Product" asp-action="Create">
+            <button class="btn btn-primary">
+                    Novo produto
+            </button>
+        </a>
+    </div>
 </div>
 
-<div class="p-4" style="background-color: #ededed; border-radius: 1rem; box-shadow: 0 0 1rem #aaa">
+<div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
     <h3>Produtos</h3>
     <hr />
 
@@ -104,7 +108,7 @@
                     <th class="table-field-validade" @GenerateTooltip("Validade")>Validade</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="products-body">
                 @foreach (var p in products)
                 {
                     <tr data-product-id="@p.Id" class="c-product-row">
@@ -120,7 +124,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="8" style="text-align: right">
+                    <td id="footer" colspan="8" style="text-align: right">
                         Exibindo <b>@(offset + 1)</b> a <b>@(Math.Min(pageCount, totalCount) + offset)</b> registros de <b>@totalCount</b> resultados
                     </td>
                 </tr>
@@ -132,3 +136,73 @@
         <h4>Não foram encontrados resultados</h4>
     }
 </div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const toSnakeCase = (str) =>
+            str &&
+            str
+                .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+                .map(x => x.toLowerCase())
+                .join('-');
+
+        const generateTableCell = (row, p, column) => {
+            const nomeCol = document.createElement("td");
+            const normalizedNameField = column.charAt(0).toLowerCase() + column.slice(1);
+
+            nomeCol.innerText = p[normalizedNameField];
+            nomeCol.className = `table-field-${toSnakeCase(column)}`;
+            nomeCol.dataset.toggle = "tooltip";
+            nomeCol.dataset.placement = "top";
+            nomeCol.dataset.title = p[normalizedNameField];
+            row.appendChild(nomeCol);
+
+            console.log(column.charAt(0).toLowerCase() + column.slice(1));
+        };
+
+        const generateTableBody = (el, products) => {
+            el.replaceChildren(...products.map((p) => {
+                const row = document.createElement("tr");
+                row.dataset.productId = p.id;
+                row.className = "c-product-row";
+
+                generateTableCell(row, p, "Nome");
+                generateTableCell(row, p, "Descricao");
+                generateTableCell(row, p, "Quantidade");
+                generateTableCell(row, p, "Localizacao");
+                generateTableCell(row, p, "Tags");
+                generateTableCell(row, p, "EstrategiaConsumo");
+                generateTableCell(row, p, "Validade");
+
+                return row;
+            }));
+        };
+
+        const updateFooter = (totalCount, offset, pageCount) => {
+            const footer = document.getElementById("footer");
+            footer.innerHTML = `Exibindo <b>${offset + 1}</b> a <b>${Math.min(pageCount, totalCount) + offset}</b> registros de <b>${totalCount}</b> resultados`;
+        };
+
+        let searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("change", (evt) => {
+            const { value } = evt.target;
+
+            if (value !== null) {
+                let action = fetch('@Url.Action("QueryProduct", "Products")?q=' + value);
+
+                action
+                    .then(response => response.json())
+                    .then(response => {
+                        const { value: responseValue } = response;
+                        const { totalCount, offset, pageCount } = responseValue;
+
+                        if (responseValue.status === 200) {
+                            generateTableBody(document.getElementById("products-body"), responseValue.products);
+                            updateFooter(totalCount, offset, pageCount);
+                        }
+                    });
+
+            }
+        });
+    });
+</script>

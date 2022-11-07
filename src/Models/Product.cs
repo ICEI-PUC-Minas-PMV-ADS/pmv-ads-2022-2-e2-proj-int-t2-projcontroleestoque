@@ -6,6 +6,7 @@
         public string? Nome { get; set; }
         public string? Descricao { get; set; }
         public int Quantidade { get; set; }
+        public int FornecedorId { get; set; }
         public string? Localizacao { get; set; }
         public string? Tags { get; set; }
         public string? EstrategiaConsumo { get; set; }
