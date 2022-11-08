@@ -7,12 +7,10 @@ internal class Program
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-                
-        var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
 
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
-            options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
         });
 
         // Add services to the container.

@@ -5,7 +5,7 @@
     int offset = (ViewData["pagination_offset"] as int?).GetValueOrDefault(0);
     int pageCount = (ViewData["pagination_pageCount"] as int?).GetValueOrDefault(0);
 
-    ViewData["Title"] = "List of Products";
+    ViewData["Title"] = "Lista de Produtos";
 }
 
 @functions
@@ -83,9 +83,7 @@
 
     <div class="d-flex justify-content-end ms-2">
         <a asp-controller="Product" asp-action="Create">
-            <button class="btn btn-primary">
-                    Novo produto
-            </button>
+            <button type="button" class="btn btn-secondary">Buscar Produto</button>
         </a>
     </div>
 </div>

@@ -1,12 +1,11 @@
 ﻿@model ProjControleEstoque.Models.Product
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Criar";
 }
 
-<h1>Create</h1>
+<h1>Criar Produto</h1>
 
-<h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -53,15 +52,16 @@
                 <span asp-validation-for="Validade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Criar" class="btn btn-secondary" id="submit-btn" />
+                 <a asp-action="Index" id="back-btn">
+                    <button type="button" class="btn btn-danger">Voltar</button>
+                </a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
