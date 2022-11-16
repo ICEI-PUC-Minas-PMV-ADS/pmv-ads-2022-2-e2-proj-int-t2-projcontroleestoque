@@ -4,49 +4,50 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Edição de Dados do Usuário</h1>
 
-<h4>User</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Hash" class="control-label"></label>
-                <input asp-for="Hash" class="form-control" />
-                <span asp-validation-for="Hash" class="text-danger"></span>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input name="Hash" type="password" class="form-control" id="senha" aria-describedby="ajudaSenha" required>
+                <div id="ajudaSenha" class="form-text">Por favor digite a senha desejada.</div>
             </div>
-            <div class="form-group">
-                <label asp-for="Funcao" class="control-label"></label>
-                <select asp-for="Funcao" class="form-control"></select>
+            <div class="form-group mb-3">
+                <label asp-for="Funcao" class="control-label">Informe a função do Usuário</label>
+                <select asp-for="Funcao" class="form-select">
+                    <option value="administrador"> Administrador </option>
+                    <option value="usuario"> Usuário </option>
+                </select>
                 <span asp-validation-for="Funcao" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DataCadastro" class="control-label"></label>
-                <input asp-for="DataCadastro" class="form-control" />
-                <span asp-validation-for="DataCadastro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+  
+            <div class="form-group mb-3">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="form-group mb-3">
+                <input type="submit" value="Salvar Alterações" class="btn btn-secondary btn-lg" />
+                <a asp-action="Index">
+                    <input type="button" value="voltar" class="btn btn-secondary btn-lg" />
+                </a>
             </div>
+
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {
