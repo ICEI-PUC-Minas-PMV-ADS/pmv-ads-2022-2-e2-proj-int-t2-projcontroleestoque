@@ -81,23 +81,5 @@
         })
     </script>
 
-
-    <script>
-      document.addEventListener("DOMContentLoaded",  () => { 
-        let validarEmailBtn = document.getElementById("checkEmail")
-        validarEmailBtn.addEventListener("click", function () {
-          let email = document.getElementById("email")
-          let ajax_checkEmail = fetch("User/ValidaEmail", {method:"Post", body: JSON.stringify({ Email: email.value }), headers: {
-                "Content-Type": "application/json; charset=utf-8"
-          }})
-          ajax_checkEmail.then((response) => response.json())
-          ajax_checkEmail.then((response) => {
-            if(response.values.status != 200){
-              alert(response.values.message)
-            }else {alert("Email Valido.")}
-          })
-        } )
-      } )
-    </script>
 </body>
 </html>
