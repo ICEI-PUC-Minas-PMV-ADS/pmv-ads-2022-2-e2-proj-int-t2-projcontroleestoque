@@ -1,0 +1,112 @@
+﻿@using Microsoft.AspNetCore.Html
+@{
+    var reports = ViewData["reportData"] as MovimentacaoEstoque[];
+}
+
+@functions
+{
+    IHtmlContent GenerateTooltip(string? label)
+    {
+        return Html.Raw(String.Format("data-toggle='tooltip' data-placement='top' title='{0}'", label));
+    }
+}
+
+<style>
+    .table-field-nome {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-descricao {
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-quantidade {
+        max-width: 60px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-localizacao {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-tags {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-estategia-consumo {
+        max-width: 50px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-criado {
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .table-field-validade {
+        max-width: 70px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .c-product-row, .c-product-row > td {
+        cursor: pointer;
+    }
+</style>
+
+<div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
+    <h3>Entrada/Saida</h3>
+    <hr />
+    @if (reports != null && reports.Length > 0)
+    {
+        <table id="products" class="table table-hover table-sm" style="background-color: white; border-radius: 0.25rem">
+            <thead>
+                <tr>                    
+                    <th class="table-field">Solicitado Por</th>
+                    <th class="table-field">Realizado Por</th>
+                    <th class="table-field">Tipo</th>
+                    <th class="table-field">Motivo</th>
+                    <th class="table-field">Produto</th>
+                    <th class="table-field">Quantidade</th>
+                    <th class="table-field">Data</th>
+                </tr>
+            </thead>
+            <tbody id="products-body">
+                @foreach (var r in reports)
+                {
+                    <tr data-product-id="@r.Id" class="c-product-row">
+                        <td class="table-field-nome" @GenerateTooltip(r.SolicitadoPor?.Nome)>@r.SolicitadoPor?.Nome</td>
+                        <td class="table-field-nome" @GenerateTooltip(r.RegistradoPor?.Nome)>@r.RegistradoPor?.Nome</td>
+                        <td class="table-field-nome" @GenerateTooltip(r.Tipo)>@r.Tipo</td>
+                        <td class="table-field-nome" @GenerateTooltip(r.Motivo)>@r.Motivo</td>
+                        <td class="table-field-nome" @GenerateTooltip(r.Produto?.Nome)>@r.Produto?.Nome</td>
+                        <td class="table-field-nome" @GenerateTooltip(r.Quantidade.ToString())>@r.Quantidade</td>
+                        <td class="table-field-nome" @GenerateTooltip(r.DataMovimento.ToString())>@r.DataMovimento</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4>Não foram encontrados resultados</h4>
+    }
+</div>

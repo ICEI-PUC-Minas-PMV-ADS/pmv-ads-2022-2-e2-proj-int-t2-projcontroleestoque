@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjControleEstoque.Context;
 using ProjControleEstoque.Models;
 using ProjControleEstoque.QueryParameters;
@@ -17,14 +18,29 @@ namespace ProjControleEstoque.Controllers
             _appDbContext = appDbContext;
         }
 
+        /***
+         * Mostra a pagina para o usuario.
+         */
+
+        [HttpGet]
         public IActionResult Index()
         {
+            var movimentacaoEstoque = _appDbContext.movimentacaoEstoques?
+                .Include(x => x.Produto)
+                .Include(x => x.SolicitadoPor)
+                .Include(x => x.RegistradoPor)
+                .First();
+
             var products = _appDbContext.Products?.ToArray();
             ViewData["products"] = products;
             return View();
         }
 
-        [HttpGet]
+        /***
+         * Recebe as informação da pagina e salva no banco de dados.
+         */
+
+        [HttpPost]
         public IActionResult AddProduct([FromQuery] ProductParameters productParams)
         {
             Product product = new Product { Nome = productParams.ProductName };

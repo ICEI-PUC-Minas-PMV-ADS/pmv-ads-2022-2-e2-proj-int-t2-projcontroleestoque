@@ -18,6 +18,11 @@ internal class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
+        builder.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy("Employee", policy => policy.RequireClaim("Employee"));
+        });
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -34,7 +39,7 @@ internal class Program
 
         app.UseRouting();
 
-        app.UseAuthorization();
+        app.UseAuthorization();        
 
         app.MapControllerRoute(
             name: "default",

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -86,6 +85,8 @@ namespace ProjControleEstoque.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Motivo = table.Column<string>(type: "varchar(100)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Tipo = table.Column<string>(type: "varchar(100)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     RegistradoPorId = table.Column<int>(type: "int", nullable: true),
                     SolicitadoPorId = table.Column<int>(type: "int", nullable: true),
@@ -110,10 +111,10 @@ namespace ProjControleEstoque.Migrations
                 onDelete: ReferentialAction.SetNull);
             
             migrationBuilder.AddForeignKey(
-                "FK_ProductsSuppliers",
-                "Products",
-                "FornecedorId",
-                "Suppliers",
+                "FK_ProductsSuppliers", // Nome
+                "Products",             // Tabela
+                "FornecedorId",         // Column estrangeira
+                "Suppliers",            // Tabela estrangeira
                 principalColumn: "Id",
                 onUpdate: ReferentialAction.Cascade,
                 onDelete: ReferentialAction.SetNull);
