@@ -25,11 +25,7 @@ namespace ProjControleEstoque.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var movimentacaoEstoque = _appDbContext.movimentacaoEstoques?
-                .Include(x => x.Produto)
-                .Include(x => x.SolicitadoPor)
-                .Include(x => x.RegistradoPor)
-                .First();
+           
 
             var products = _appDbContext.Products?.ToArray();
             ViewData["products"] = products;

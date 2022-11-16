@@ -1,9 +1,6 @@
-<<<<<<< HEAD:src/Migrations/20221107015013_FixEntitties.cs
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-=======
+
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Metadata;
->>>>>>> 4c1c85b74a0f40ac7cb88271615cf597faf06c00:src/Migrations/20221108165855_teste.cs
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
