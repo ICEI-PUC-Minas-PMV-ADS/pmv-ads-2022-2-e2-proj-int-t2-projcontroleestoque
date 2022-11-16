@@ -81,10 +81,8 @@
         <input type="text" class="form-control" placeholder="Buscar" id="searchInput" />
     </div>
 
-    <div class="d-flex justify-content-end ms-2">
-        <a asp-controller="Product" asp-action="Create">
-            <button type="button" class="btn btn-secondary">Buscar Produto</button>
-        </a>
+    <div class="d-flex justify-content-end ms-2">        
+        <button type="button" class="btn btn-secondary" id="searchButton">Buscar Produto</button>
     </div>
 </div>
 
@@ -181,12 +179,11 @@
             footer.innerHTML = `Exibindo <b>${offset + 1}</b> a <b>${Math.min(pageCount, totalCount) + offset}</b> registros de <b>${totalCount}</b> resultados`;
         };
 
-        let searchInput = document.getElementById("searchInput");
-        searchInput.addEventListener("change", (evt) => {
-            const { value } = evt.target;
+        const searchFunction = () => {
+            let searchInput = document.getElementById("searchInput");
 
-            if (value !== null) {
-                let action = fetch('@Url.Action("QueryProduct", "Products")?q=' + value);
+            if (searchInput.value !== null) {
+                let action = fetch('@Url.Action("QueryProduct", "Products")?q=' + searchInput.value);
 
                 action
                     .then(response => response.json())
@@ -201,6 +198,14 @@
                     });
 
             }
-        });
+        };
+
+        let searchInput = document.getElementById("searchInput");
+
+        searchInput.addEventListener("change", (evt) => searchFunction());
+
+        let searchButton = document.getElementById("searchButton");
+
+        searchButton.addEventListener('click', (evt) => searchFunction());
     });
 </script>

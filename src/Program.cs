@@ -1,5 +1,6 @@
 using Azure.Identity;
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using ProjControleEstoque.Context;
 
 internal class Program
@@ -8,9 +9,11 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
+
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
-            options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
+            options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
         });
 
         // Add services to the container.
