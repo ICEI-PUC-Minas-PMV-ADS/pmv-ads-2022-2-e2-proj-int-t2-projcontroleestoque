@@ -1,18 +1,41 @@
-html {
-  font-size: 14px;
+* 
+{
+    box-sizing: border-box;
 }
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    padding: 100px;
+}
+
+table {
+    background-color: rgb(180, 180, 180);
+}
+
+table {
+    background-color: rgb(200, 200, 200);
+}
+
+th
+{
+    background-color: white;
+}
+
+#create-btn
+{
+    float: right;
+    position: relative;
+    bottom: 1em;
+}
+
+#submit-btn, #back-btn {
+    position: relative;
+    top: 1em;
+}
+
+#submit-btn {
+    position: relative;
+}
+
+#back-btn {
+    position: relative;
+    left: 2em;
 }

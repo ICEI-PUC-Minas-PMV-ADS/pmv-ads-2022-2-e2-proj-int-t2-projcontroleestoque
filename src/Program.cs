@@ -1,5 +1,6 @@
 using Azure.Identity;
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using ProjControleEstoque.Context;
 
 internal class Program
@@ -7,7 +8,7 @@ internal class Program
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-                
+
         var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
 
         builder.Services.AddDbContext<AppDbContext>(options =>

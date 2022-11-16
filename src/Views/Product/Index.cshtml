@@ -4,11 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<a asp-controller="Product" asp-action="Create">
+    <button type="button" class="btn btn-secondary" id="create-btn">
+        Incluir Produto
+    </button>
+</a>
+
 <table class="table">
     <thead>
         <tr>
@@ -42,28 +44,26 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Quantidade)
-            </td>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Localizacao)
             </td>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Tags)
             </td>
-            <td>
+            <td class="table-light"><td>
                 @Html.DisplayFor(modelItem => item.EstrategiaConsumo)
             </td>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Criado)
             </td>
-            <td>
+            <td class="table-light">
                 @Html.DisplayFor(modelItem => item.Validade)
             </td>
             <td>

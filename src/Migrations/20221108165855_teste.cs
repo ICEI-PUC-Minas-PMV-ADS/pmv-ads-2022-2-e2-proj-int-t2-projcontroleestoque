@@ -1,11 +1,16 @@
+<<<<<<< HEAD:src/Migrations/20221107015013_FixEntitties.cs
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
+=======
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
+>>>>>>> 4c1c85b74a0f40ac7cb88271615cf597faf06c00:src/Migrations/20221108165855_teste.cs
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ProjControleEstoque.Migrations
 {
-    public partial class FixEntitties : Migration
+    public partial class teste : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -109,7 +114,7 @@ namespace ProjControleEstoque.Migrations
                 principalColumn: "Id",
                 onUpdate: ReferentialAction.Cascade,
                 onDelete: ReferentialAction.SetNull);
-            
+
             migrationBuilder.AddForeignKey(
                 "FK_ProductsSuppliers", // Nome
                 "Products",             // Tabela
@@ -152,9 +157,9 @@ namespace ProjControleEstoque.Migrations
             migrationBuilder.DropForeignKey("FK_MovimentacaoEstoques_Users_SolicitadoPorId", "MovimentacaoEstoques");
             migrationBuilder.DropForeignKey("FK_MovimentacaoEstoques_Users_RegistradoPorId", "MovimentacaoEstoques");
             migrationBuilder.DropForeignKey("FK_MovimentacaoEstoques_Products_ProdutoId", "MovimentacaoEstoques");
-            
+
             migrationBuilder.DropForeignKey("FK_ProductsSuppliers", "Products");
-            
+
             migrationBuilder.DropForeignKey("FK_SuppliersUsers", "Suppliers");
 
             migrationBuilder.DropTable(
