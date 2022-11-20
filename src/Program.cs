@@ -2,6 +2,7 @@ using Azure.Identity;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 using ProjControleEstoque.Context;
+using System.Text.Json.Serialization;
 
 internal class Program
 {
@@ -18,6 +19,9 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+
+        builder.Services.AddControllers().AddJsonOptions(x =>
+            x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
         builder.Services.AddAuthorization(options =>
         {

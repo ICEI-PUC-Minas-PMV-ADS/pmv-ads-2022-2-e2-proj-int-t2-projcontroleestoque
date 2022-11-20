@@ -59,10 +59,6 @@ namespace ProjControleEstoque.Controllers
 
             ViewData["message"] = nome;
             return View();
-        }
-
-
-
-        
+        }      
     }
 }
