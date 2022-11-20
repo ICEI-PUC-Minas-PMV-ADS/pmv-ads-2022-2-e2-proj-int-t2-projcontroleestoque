@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProjControleEstoque.Context;
-using ProjControleEstoque.Utils;
-=======
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +5,6 @@ using ProjControleEstoque.Context;
 using ProjControleEstoque.Utils;
 using System;
 using System.Globalization;
->>>>>>> Stashed changes
 
 namespace ProjControleEstoque.Controllers
 {
@@ -30,76 +23,6 @@ namespace ProjControleEstoque.Controllers
         {
             return View();
         }
-
-<<<<<<< Updated upstream
-        public IActionResult GetEntradaSaida(
-            [FromQuery] string? startDate,
-            [FromQuery] string? endDate,
-            [FromQuery] string? type = Constants.ReportEntradaSaida_Type_InOut
-        ) {
-            if (type == Constants.ReportEntradaSaida_Type_InOut)
-            {
-                var query = _appDbContext.movimentacaoEstoques?.AsQueryable();
-                
-                if (startDate != null && endDate != null)
-                {
-                    var dateTimeStart = DateTime.Parse(startDate);
-                    var dateTimeEnd = DateTime.Parse(endDate);
-                    
-                    query
-                        .Where(x => x.DataMovimento >= dateTimeStart && x.DataMovimento <= dateTimeEnd)
-                        .Include(x => x.Produto)
-                        .Include(x => x.SolicitadoPor)
-                        .Include(x => x.RegistradoPor);
-                    
-                    ViewData["reportData"] = query.ToArray();
-                }
-                else if (startDate != null)
-                {
-                    var dateTimeStart = DateTime.Parse(startDate);
-                    
-                    query
-                        .Where(x => x.DataMovimento >= dateTimeStart)
-                        .Include(x => x.Produto)
-                        .Include(x => x.SolicitadoPor)
-                        .Include(x => x.RegistradoPor);
-
-                    ViewData["reportData"] = query.ToArray();
-                }
-                else if (endDate != null)
-                {
-                    var dateTimeEnd = DateTime.Parse(endDate);
-                    
-                    query
-                        .Where(x => x.DataMovimento <= dateTimeEnd)
-                        .Include(x => x.Produto)
-                        .Include(x => x.SolicitadoPor)
-                        .Include(x => x.RegistradoPor);
-
-                    ViewData["reportData"] = query.ToArray();
-                }
-                else
-                {
-                    var result = query
-                        .Include(x => x.Produto)
-                        .Include(x => x.SolicitadoPor)
-                        .Include(x => x.RegistradoPor)
-                        .ToArray();
-
-                    ViewData["reportData"] = result;
-                }
-                ViewData["formTitle"] = "Entrada e saida de produtos";
-            }
-            else if (type == Constants.ReportEntradaSaida_Type_OnlyIn)
-            {
-                ViewData["formTitle"] = "Entrada de produtos";
-            }
-            else if (type == Constants.ReportEntradaSaida_Type_OnlyOut)
-            {
-                ViewData["formTitle"] = "Saida de produtos";
-            }
-            return View();
-=======
         public IActionResult GenerateMovimentacaoEstoque(
             [FromQuery] string? startDate,
             [FromQuery] string? endDate,
@@ -173,7 +96,6 @@ namespace ProjControleEstoque.Controllers
                     offset = offset
                 }
             }));
->>>>>>> Stashed changes
         }
     }
 }
