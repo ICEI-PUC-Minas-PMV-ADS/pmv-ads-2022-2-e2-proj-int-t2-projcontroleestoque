@@ -15,7 +15,7 @@ namespace ProjControleEstoque.Context
                 .HasOne(p => p.Fornecedor)
                 .WithMany(b => b.Products);
 
-            modelBuilder.Entity<Supplier>()                                
+            modelBuilder.Entity<Supplier>()
                 .HasOne(p => p.CriadoPor);
 
             modelBuilder.Entity<MovimentacaoEstoque>()

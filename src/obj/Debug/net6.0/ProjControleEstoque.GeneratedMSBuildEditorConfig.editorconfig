@@ -48,11 +48,23 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+<<<<<<< Updated upstream
 [C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Reports/GetEntradaSaida.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xHZXRFbnRyYWRhU2FpZGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/Error.cshtml]
+=======
+[E:/PUCMINAS/updated_1611/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Reports/GetEntradaSaida.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xHZXRFbnRyYWRhU2FpZGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/PUCMINAS/updated_1611/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Reports/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/PUCMINAS/updated_1611/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/Error.cshtml]
+>>>>>>> Stashed changes
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 

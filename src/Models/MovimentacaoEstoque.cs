@@ -7,7 +7,11 @@
         public string? Tipo { get; set; }
         public int Quantidade { get; set; }
         public int RegistradoPorId { get; set; }
+<<<<<<< Updated upstream
         public int SolicitadoPorId { get; set; }
+=======
+        public int? SolicitadoPorId { get; set; }
+>>>>>>> Stashed changes
         public int ProdutoId { get; set; }
         public DateTime? DataMovimento { get; set; }
 
