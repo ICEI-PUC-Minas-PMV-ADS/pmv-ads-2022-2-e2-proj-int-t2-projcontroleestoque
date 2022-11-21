@@ -36,7 +36,17 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar Informações</a> |
-    <a asp-action="Index">Voltar para Lista</a>
-</div>
+
+<!-- 
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+        window.sessionStorage.setItem(@Model.Id,JSON.stringify(@Json.Serialize(Model)))
+
+    })
+
+</script>
+
+-->
