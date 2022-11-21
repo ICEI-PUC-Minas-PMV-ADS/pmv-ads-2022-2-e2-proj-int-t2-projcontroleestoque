@@ -11,6 +11,15 @@ internal class Program
 
         var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
 
+
+        
+        builder.Services.AddDistributedMemoryCache();
+        builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        builder.Services.AddSession(option =>
+        {
+            option.IdleTimeout = TimeSpan.FromMinutes(40);
+        });
+
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
             options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
@@ -37,6 +46,7 @@ internal class Program
         }
 
         app.UseStaticFiles();
+        app.UseSession();
 
         app.UseRouting();
 

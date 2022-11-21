@@ -8,16 +8,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjControleEstoque.Context;
 using ProjControleEstoque.Models;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace ProjControleEstoque.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _appDBcontext;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public UsersController(AppDbContext context)
+        
+        public UsersController(AppDbContext context,IHttpContextAccessor httpContextAccessor)
         {
-            _context = context;
+            _appDBcontext = context;
+            _httpContext = httpContextAccessor;
         }
 
 
@@ -30,15 +35,20 @@ namespace ProjControleEstoque.Controllers
         public async Task<IActionResult> Login([Bind("Nome","Hash")] User user)
         {
             
-            var usuario = await _context.Users.FirstOrDefaultAsync(m => m.Nome == user.Nome);
+            var usuario = await _appDBcontext.Users.FirstOrDefaultAsync(m => m.Nome == user.Nome);
             
 
             if (usuario != null)
             {
                 var validaSenha = BCrypt.Net.BCrypt.Verify(user.Hash,usuario.Hash);
                 if (validaSenha)
-                    return RedirectToAction("Details",new { id = usuario.Id});
-                
+                {
+                    _httpContext.HttpContext.Session.SetString("User",JsonSerializer.Serialize(user));
+
+                    return RedirectToAction("Index","Home");
+
+                }
+
             }
             ViewBag.Message = "Login Invalido senha ou Usuário Incorretos";
             return View();           
@@ -47,18 +57,18 @@ namespace ProjControleEstoque.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Users.ToListAsync());
+              return View(await _appDBcontext.Users.ToListAsync());
         }
        
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _appDBcontext.Users == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var user = await _appDBcontext.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -84,8 +94,8 @@ namespace ProjControleEstoque.Controllers
             if (ModelState.IsValid)
             {
                 user.Hash = BCrypt.Net.BCrypt.HashPassword(user.Hash);
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                _appDBcontext.Add(user);
+                await _appDBcontext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(user);
@@ -94,12 +104,12 @@ namespace ProjControleEstoque.Controllers
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _appDBcontext.Users == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _appDBcontext.Users.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -124,8 +134,8 @@ namespace ProjControleEstoque.Controllers
                 try
                 {
                     user.Hash = BCrypt.Net.BCrypt.HashPassword(user.Hash);
-                    _context.Update(user);
-                    await _context.SaveChangesAsync();
+                    _appDBcontext.Update(user);
+                    await _appDBcontext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -146,12 +156,12 @@ namespace ProjControleEstoque.Controllers
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Users == null)
+            if (id == null || _appDBcontext.Users == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var user = await _appDBcontext.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -166,23 +176,23 @@ namespace ProjControleEstoque.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Users == null)
+            if (_appDBcontext.Users == null)
             {
                 return Problem("Entity set 'AppDbContext.Users'  is null.");
             }
-            var user = await _context.Users.FindAsync(id);
+            var user = await _appDBcontext.Users.FindAsync(id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                _appDBcontext.Users.Remove(user);
             }
             
-            await _context.SaveChangesAsync();
+            await _appDBcontext.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(int id)
         {
-          return _context.Users.Any(e => e.Id == id);
+          return _appDBcontext.Users.Any(e => e.Id == id);
         }
     }
 }
