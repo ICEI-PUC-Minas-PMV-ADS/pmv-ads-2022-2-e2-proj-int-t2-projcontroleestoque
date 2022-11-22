@@ -1,0 +1,86 @@
+﻿@using ProjControleEstoque.Models.Data
+@model ProjControleEstoque.Models.User
+
+@{
+    var User = ViewData["nome"] as string;
+    var fieldError = ViewData["error"] as FieldError;
+
+    ViewData["Title"] = "Usuario";
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Documento</title>
+</head>
+<body>
+
+
+    <div class="container align-center">
+
+        <h1> Formulario de Crição de Usuário </h1>
+        <form enctype="multipart/form-data" asp-action="Create" asp-controller="Users" method="Post">
+            <div class="mb-3">
+                <label for="nomeUsuario" class="form-label">Nome Completo </label>
+                <input type="name" name="Nome" class="form-control" id="nomeUsuario" aria-describedby="ajudaNome" required>
+                <div id="ajudaNome" class="form-text">Por Favor Digite seu nome Completo.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input name="Hash" type="password" class="form-control" id="senha" aria-describedby="ajudaSenha" required>
+                <div id="ajudaSenha" class="form-text">Por favor digite a senha desejada.</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmaSenha" class="form-label">Comfirme sua Senha </label>
+                <input type="password" class="form-control" id="confirmaSenha" required>
+            </div>
+
+            <div class="mb-3">
+
+                <label for="email" class="form-label">E-mail</label>
+                <input name="Email" type="email" class="form-control" id="email" aria-describedby="ajudaEmail" required>
+                @if (fieldError != null && fieldError.field == "Email")
+                {
+                    <p style="color: red">@fieldError.message </p>
+                }
+                <div id="ajudaEmail" class="form-text">Por favor Entre com um e-mail valido.</div>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Funcao" class="control-label">Informe a função do Usuário</label>
+                <select asp-for="Funcao" class="form-select" >
+                    <option value="administrador"> Administrador </option>
+                    <option value="usuario"> Usuário </option>
+                </select>
+                <span asp-validation-for="Funcao" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-secondary btn-lg" id="btnCadastrar">Cadastrar</button>
+            <a asp-controller="Home" asp-action="Index"> 
+                <button type="button" class="btn btn-secondary btn-lg" > Voltar </button>
+            </a> 
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let validarSenha = document.getElementById("confirmaSenha")
+            let senha = document.getElementById("senha")
+
+            validarSenha.addEventListener("focusout", () => {
+                if (senha.value != validarSenha.value) {
+                    alert("A validação da Senha está Incorreto, Entre com a senha Novamente!!!")
+                    validarSenha.value = "";
+                }
+            })
+        })
+    </script>
+
+</body>
+</html>

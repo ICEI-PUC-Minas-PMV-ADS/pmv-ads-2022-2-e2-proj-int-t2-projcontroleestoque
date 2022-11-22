@@ -1,0 +1,44 @@
+﻿@using Newtonsoft.Json;
+@model ProjControleEstoque.Models.User
+@inject IHttpContextAccessor _httpContext;
+
+@{
+    ViewData["Title"] = "Details";
+    var userStr = _httpContext.HttpContext.Session.GetString("User");
+    var user = JsonConvert.DeserializeObject<User>(userStr);
+}
+
+<h1>Detalhes do Usuário</h1>
+<h1>@user.Nome </h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Funcao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Funcao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataCadastro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataCadastro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>
+
+

@@ -11,9 +11,11 @@ namespace ProjControleEstoque.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext _appDbContext;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext)
+        public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext, IHttpContextAccessor httpContextAccessor)
         {
+            _httpContext = httpContextAccessor;
             _logger = logger;
             _appDbContext = appDbContext;
         }
@@ -25,8 +27,8 @@ namespace ProjControleEstoque.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-           
 
+            var user = _httpContext.HttpContext.Session.GetString("User");
             var products = _appDbContext.Products?.ToArray();
             ViewData["products"] = products;
             return View();

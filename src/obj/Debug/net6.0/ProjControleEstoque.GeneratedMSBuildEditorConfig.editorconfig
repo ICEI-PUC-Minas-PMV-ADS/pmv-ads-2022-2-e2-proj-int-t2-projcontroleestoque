@@ -5,76 +5,93 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProjControleEstoque
 build_property.RootNamespace = ProjControleEstoque
-build_property.ProjectDir = C:\Users\Rafael N\source\Repos\pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque\src\
+build_property.ProjectDir = C:\Users\henri\Documents\GitHub\pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque\src\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Rafael N\source\Repos\pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque\src
+build_property.MSBuildProjectDirectory = C:\Users\henri\Documents\GitHub\pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque\src
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Home/AddProduct.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Home/AddProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Home/Index.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Products/Index.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Products/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Create.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Delete.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Details.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Edit.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Index.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Reports/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmRleC5jc2h0bWw=
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Reports/GetEntradaSaida.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xHZXRFbnRyYWRhU2FpZGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/Error.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/User/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/User/PostRet.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQb3N0UmV0LmNzaHRtbA==
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/_ViewImports.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Users/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/_ViewStart.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Rafael N/source/Repos/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/_Layout.cshtml]
+[C:/Users/henri/Documents/GitHub/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque/src/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6m346n2oie
