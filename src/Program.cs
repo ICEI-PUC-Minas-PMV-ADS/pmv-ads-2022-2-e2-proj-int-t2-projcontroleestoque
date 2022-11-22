@@ -10,10 +10,8 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        /* var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
-
-
-        
+        var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
+     
         builder.Services.AddDistributedMemoryCache();
         builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         builder.Services.AddSession(option =>
@@ -24,13 +22,14 @@ internal class Program
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
             options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
-        }); // Obs Lembrar de trocar LocalConnection em appsettings.json */
+        }); // Obs Lembrar de trocar LocalConnection em appsettings.json 
 
+        /*
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
             options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
         });
-
+        */
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
