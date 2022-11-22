@@ -1,11 +1,15 @@
-﻿@model ProjControleEstoque.Models.User
+﻿@using Newtonsoft.Json;
+@model ProjControleEstoque.Models.User
+@inject IHttpContextAccessor _httpContext;
 
 @{
     ViewData["Title"] = "Details";
+    var userStr = _httpContext.HttpContext.Session.GetString("User");
+    var user = JsonConvert.DeserializeObject<User>(userStr);
 }
 
 <h1>Detalhes do Usuário</h1>
-
+<h1>@user.Nome </h1>
 <div>
     <hr />
     <dl class="row">
@@ -37,16 +41,4 @@
     </dl>
 </div>
 
-<!-- 
 
-<script>
-
-    document.addEventListener('DOMContentLoaded', () => {
-
-        window.sessionStorage.setItem(@Model.Id,JSON.stringify(@Json.Serialize(Model)))
-
-    })
-
-</script>
-
--->
