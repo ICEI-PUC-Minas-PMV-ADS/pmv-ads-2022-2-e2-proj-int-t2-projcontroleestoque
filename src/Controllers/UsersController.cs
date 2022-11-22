@@ -83,6 +83,12 @@ namespace ProjControleEstoque.Controllers
         {
             return View();
         }
+        public IActionResult Logout()
+        {
+            _httpContext.HttpContext.Session.Clear();
+            return RedirectToAction("Index","Home");
+
+        }
 
         // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
