@@ -2,6 +2,7 @@ using Azure.Identity;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 using ProjControleEstoque.Context;
+using System.Text.Json.Serialization;
 
 internal class Program
 {
@@ -9,7 +10,7 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
+        /* var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
 
 
         
@@ -23,10 +24,18 @@ internal class Program
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
             options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
+        }); // Obs Lembrar de trocar LocalConnection em appsettings.json */
+
+        builder.Services.AddDbContext<AppDbContext>(options =>
+        {
+            options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
         });
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+
+        builder.Services.AddControllers().AddJsonOptions(x =>
+            x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
         builder.Services.AddAuthorization(options =>
         {

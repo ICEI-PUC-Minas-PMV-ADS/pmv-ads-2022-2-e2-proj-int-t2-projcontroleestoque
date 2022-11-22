@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "Relatórios";
+}
+
+
+
+<div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem">
+    <div class="d-flex justify-content-between">
+        <h3>Relatórios</h3>
+        <select id="report_type" class="form-select" aria-label="Tipo de relatorio" style="max-width: 20rem">
+            <option value="" selected disabled>-</option>
+            <option value="Movimentação de estoque">Movimentação de estoque</option>
+            <option value="Inventário">Inventário</option>
+        </select>
+    </div>
+
+    <hr />
+
+    <div id="content"></div>
+</div>
+
+<!-- Modal de Movimentação de estoque -->
+
+<div class="modal" id="movimentacaoDeEstoque" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Movimentação de estoque</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="movimentacaoDeEstoque_filtrarPorTipo" class="form-label">Tipo</label>
+                        <select id="movimentacaoDeEstoque_filtrarPorTipo" class="form-select" aria-label="Default select example">
+                            <option value="all" selected>Entrada/Saida</option>
+                            <option value="in">Entrada</option>
+                            <option value="out">Saida</option>
+                        </select>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="movimentacaoDeEstoque_startDate" class="form-label">Data inicial</label>
+                            <input id="movimentacaoDeEstoque_startDate" class="form-control" type="date" aria-label="Disabled input example" />
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label for="movimentacaoDeEstoque_endDate" class="form-label">Data final</label>
+                            <input id="movimentacaoDeEstoque_endDate" class="form-control" type="date" aria-label="Disabled input example" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="movimentacaoDeEstoque_limitePorPagina" class="form-label">Elementos por pagina</label>
+                        <input id="movimentacaoDeEstoque_limitePorPagina" class="form-control" type="number" aria-label="Disabled input example" value="15" min="1" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="movimentacaoDeEstoque_submit">Gerar relatorio</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Inventário -->
+
+<div class="modal" id="inventario" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Inventário</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="inventario_realizadoPor" class="form-label">Realizado Por</label>
+                        <input id="inventario_realizadoPor" class="form-control" type="text" aria-label="Disabled input example" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inventario_solicitadoPor" class="form-label">Solicitado Por</label>
+                        <input id="inventario_solicitadoPor" class="form-control" type="text" aria-label="Disabled input example" />
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="inventario_executadoStartDate" class="form-label">Data de execução inicial</label>
+                            <input id="inventario_executadoStartDate" class="form-control" type="date" aria-label="Disabled input example" />
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label for="inventario_executadoEndDate" class="form-label">Data de execução final</label>
+                            <input id="inventario_executadoEndDate" class="form-control" type="date" aria-label="Disabled input example" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="inventario_criadoStartDate" class="form-label">Data de criação inicial</label>
+                            <input id="inventario_criadoStartDate" class="form-control" type="date" aria-label="Disabled input example" />
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <label for="inventario_criadoEndDate" class="form-label">Data de criação final</label>
+                            <input id="inventario_criadoEndDate" class="form-control" type="date" aria-label="Disabled input example" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inventario_limitePorPagina" class="form-label">Elementos por pagina</label>
+                        <input id="inventario_limitePorPagina" class="form-control" type="number" aria-label="Disabled input example" value="15" min="1" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="inventario_submit">Gerar relatorio</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Style
+{
+    <link rel="stylesheet" type="text/css" href="/css/reports-index.css" />
+}
+
+@section Scripts
+{
+    <script src="/js/reports/index.js"></script>
+    <script src="/js/reports/movimentacao-de-estoque.js"></script>
+    <script src="/js/reports/inventario.js"></script>
+}

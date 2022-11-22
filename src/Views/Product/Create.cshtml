@@ -6,6 +6,7 @@
 
 <h1>Criar Produto</h1>
 
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -52,16 +53,12 @@
                 <span asp-validation-for="Validade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Criar" class="btn btn-secondary" id="submit-btn" />
-                 <a asp-action="Index" id="back-btn">
-                    <button type="button" class="btn btn-danger">Voltar</button>
-                </a>
+                <input type="submit" value="Save" class="btn btn-secondary" id="save-btn" />
+                <a asp-action="Index" class="btn btn-danger" id="back-btn">Voltar</a>
             </div>
         </form>
     </div>
 </div>
-
-
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

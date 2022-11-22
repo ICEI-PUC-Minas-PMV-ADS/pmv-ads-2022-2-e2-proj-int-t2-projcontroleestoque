@@ -74,9 +74,10 @@
     .c-product-row, .c-product-row > td {
         cursor: pointer;
     }
+    
 </style>
 
-<div class="d-flex justify-content-between align-items-center my-4 p-2" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
+<div class="d-flex justify-content-between align-items-center p-2" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem; margin-bottom: 2rem">
     <div class="me-2" style="flex-grow: 1">
         <input type="text" class="form-control" placeholder="Buscar" id="searchInput" />
     </div>
@@ -92,40 +93,42 @@
 
     @if (products != null && products.Length > 0)
     {
-        <table id="products" class="table table-hover table-sm" style="background-color: white; border-radius: 0.25rem">
-            <thead>
-                <tr>
-                    <th class="table-field-nome" @GenerateTooltip("Nome")>Nome</th>
-                    <th class="table-field-descricao" @GenerateTooltip("Descrição")>Descrição</th>
-                    <th class="table-field-quantidade" @GenerateTooltip("Quantidade")>Quantidade</th>
-                    <th class="table-field-localizacao" @GenerateTooltip("Localização")>Localização</th>
-                    <th class="table-field-tags" @GenerateTooltip("Tags")>Tags</th>
-                    <th class="table-field-estategia-consumo" @GenerateTooltip("Estrategia")>Estrategia</th>
-                    <th class="table-field-validade" @GenerateTooltip("Validade")>Validade</th>
-                </tr>
-            </thead>
-            <tbody id="products-body">
-                @foreach (var p in products)
-                {
-                    <tr data-product-id="@p.Id" class="c-product-row">
-                        <td class="table-field-nome" @GenerateTooltip(p.Nome)>@p.Nome</td>
-                        <td class="table-field-descricao" @GenerateTooltip(p.Descricao)>@p.Descricao</td>
-                        <td class="table-field-quantidade" @GenerateTooltip(p.Quantidade.ToString())>@p.Quantidade</td>
-                        <td class="table-field-localizacao" @GenerateTooltip(p.Localizacao)>@p.Localizacao</td>
-                        <td class="table-field-tags" @GenerateTooltip(p.Tags)>@p.Tags</td>
-                        <td class="table-field-estategia-consumo" @GenerateTooltip(p.EstrategiaConsumo)>@p.EstrategiaConsumo</td>
-                        <td class="table-field-validade" @GenerateTooltip(p.Validade?.ToString("dd/MM/yyyy"))>@p.Validade?.ToString("dd/MM/yyyy")</td>
+        <div class="table-responsive">
+            <table id="products" class="table table-hover table-sm table-bordered" style="background-color: white; border-radius: 0.25rem">
+                <thead>
+                    <tr>
+                        <th class="table-field-nome" @GenerateTooltip("Nome")>Nome</th>
+                        <th class="table-field-descricao" @GenerateTooltip("Descrição")>Descrição</th>
+                        <th class="table-field-quantidade" @GenerateTooltip("Quantidade")>Quantidade</th>
+                        <th class="table-field-localizacao" @GenerateTooltip("Localização")>Localização</th>
+                        <th class="table-field-tags" @GenerateTooltip("Tags")>Tags</th>
+                        <th class="table-field-estategia-consumo" @GenerateTooltip("Estratégia")>Estratégia</th>
+                        <th class="table-field-validade" @GenerateTooltip("Validade")>Validade</th>
                     </tr>
-                }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td id="footer" colspan="8" style="text-align: right">
-                        Exibindo <b>@(offset + 1)</b> a <b>@(Math.Min(pageCount, totalCount) + offset)</b> registros de <b>@totalCount</b> resultados
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                </thead>
+                <tbody id="products-body" class="">
+                    @foreach (var p in products)
+                    {
+                        <tr data-product-id="@p.Id" class="c-product-row">
+                            <td class="table-field-nome" @GenerateTooltip(p.Nome)>@p.Nome</td>
+                            <td class="table-field-descricao" @GenerateTooltip(p.Descricao)>@p.Descricao</td>
+                            <td class="table-field-quantidade" @GenerateTooltip(p.Quantidade.ToString())>@p.Quantidade</td>
+                            <td class="table-field-localizacao" @GenerateTooltip(p.Localizacao)>@p.Localizacao</td>
+                            <td class="table-field-tags" @GenerateTooltip(p.Tags)>@p.Tags</td>
+                            <td class="table-field-estategia-consumo" @GenerateTooltip(p.EstrategiaConsumo)>@p.EstrategiaConsumo</td>
+                            <td class="table-field-validade" @GenerateTooltip(p.Validade?.ToString("dd/MM/yyyy"))>@p.Validade?.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td id="footer" colspan="8" style="text-align: right">
+                            Exibindo <b>@(offset + 1)</b> a <b>@(Math.Min(pageCount, totalCount) + offset)</b> registros de <b>@totalCount</b> resultados
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
     }
     else
     {
