@@ -27,6 +27,7 @@ namespace ProjControleEstoque.Migrations
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
 
+
             migrationBuilder.CreateTable(
                 name: "Inventarios",
                 columns: table => new
@@ -235,6 +236,7 @@ namespace ProjControleEstoque.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
+
         }
     }
 }
