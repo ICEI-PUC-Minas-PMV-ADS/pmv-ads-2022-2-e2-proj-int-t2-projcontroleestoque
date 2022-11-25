@@ -109,7 +109,7 @@
                 <tbody id="products-body" class="">
                     @foreach (var p in products)
                     {
-                        <tr data-product-id="@p.Id" class="c-product-row">
+                        <tr data-product-id="@p.Id" class="c-product-row" >
                             <td class="table-field-nome" @GenerateTooltip(p.Nome)>@p.Nome</td>
                             <td class="table-field-descricao" @GenerateTooltip(p.Descricao)>@p.Descricao</td>
                             <td class="table-field-quantidade" @GenerateTooltip(p.Quantidade.ToString())>@p.Quantidade</td>
