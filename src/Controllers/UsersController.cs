@@ -43,7 +43,7 @@ namespace ProjControleEstoque.Controllers
                 var validaSenha = BCrypt.Net.BCrypt.Verify(user.Hash,usuario.Hash);
                 if (validaSenha)
                 {
-                    _httpContext.HttpContext.Session.SetString("User",JsonSerializer.Serialize(user));
+                    _httpContext.HttpContext.Session.SetString("User",JsonSerializer.Serialize(usuario));
 
                     return RedirectToAction("Index","Home");
 

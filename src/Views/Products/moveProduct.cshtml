@@ -3,184 +3,88 @@
 
 @inject IHttpContextAccessor _httpContext;
 @{
-
+    ViewData["Title"] = "moveProduct";
     var userStr = _httpContext.HttpContext.Session.GetString("User");
     var user = JsonConvert.DeserializeObject<User>(userStr);
+    ViewData["Teste"] = userStr;
 
 }
-
 
 
 <div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem">
-    <div class="d-flex justify-content-between">
-
-        <select id="report_type" class="form-select" aria-label="Tipo de relatorio" style="max-width: 20rem">
-            <option value="" selected disabled>-</option>
-            <option value="EntradaProdutos">Entrada de Produtos </option>
-            <option value="SaidaProdutos">Saida de Produtos </option>
-            <option value="DescarteProdutos"> Descarte de Produtos </option>
-        </select>
-    </div>
-
+    <h1>Movimentação do Estoque </h1>
     <hr />
 
-    <div id="content"></div>
-</div>
+    <form asp-action="Create" asp-controller="Products">
+        <div>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Nome) do produto:
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nome)
+                </dd>
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Quantidade) no Estoque:
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Quantidade) Unidades.
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Localizacao) do Produto
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Localizacao)
+                </dd>
 
-<!-- Modal de Entrada de Produtos -->
-
-<div class="modal" id="EntradaProdutos" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title"> Entrada de Produto </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div>
-                        <dl class="row">
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Nome)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Nome)
-                            </dd>
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Quantidade)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Quantidade)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Localizacao)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Localizacao)
-                            </dd>
-                            
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Fornecedor)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Fornecedor)
-                            </dd>
-                            
-                    </div>
-                    <div class="mb-3">
-                        <label for="movimentacaoDeEstoque_filtrarPorTipo" class="form-label">Tipo</label>
-                        <select id="movimentacaoDeEstoque_filtrarPorTipo" class="form-select" aria-label="Default select example">
-                            <option value="all" selected>Entrada/Saida</option>
-                            <option value="in">Entrada</option>
-                            <option value="out">Saida</option>
-                        </select>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <label for="movimentacaoDeEstoque_date" class="form-label"> Data de Movimentação </label>
-                            <input id="movimentacaoDeEstoque_date" class="form-control" type="date" aria-label="Disabled input example" />
-                        </div>
-                        
-                    </div>
-
-                    <div class="mb-3">
-                       <label for="quantidade_movimentada" class="form-label">Quantidade</label>
-                        <input id="quantidade_movimentada" class="form-control" type="number" aria-label="Disabled input example" value="1" min="1" />
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="movimentacaoDeEstoque_submit">Gerar relatorio</button>
-            </div>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Fornecedor) :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Fornecedor)
+                </dd>
         </div>
-    </div>
-</div>
+        <input name="ProdutoId" type="hidden" value="@Html.DisplayFor(model => model.Id)" />
+        <input name="RegistradoPorId" type="hidden" value ="@user.Id" />
+        
+        
 
-<!-- Modal de Saida de Produtos -->
+        Escolha a Movimentação a ser Feita:
+        <div class="d-flex justify-content-between mt-2 mb-3">
 
-<div class="modal" id="saidaProduto" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Inventário</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div>
-                        <dl class="row">
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Nome)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Nome)
-                            </dd>
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Quantidade)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Quantidade)
-                            </dd>
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Localizacao)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Localizacao)
-                            </dd>
-
-                            <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.Fornecedor)
-                            </dt>
-                            <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.Fornecedor)
-                            </dd>
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="movimentacaoDeEstoque_filtrarPorTipo" class="form-label">Tipo</label>
-                        <select id="movimentacaoDeEstoque_filtrarPorTipo" class="form-select" aria-label="Default select example">
-                            <option value="all" selected>Entrada/Saida</option>
-                            <option value="in">Entrada</option>
-                            <option value="out">Saida</option>
-                        </select>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <label for="movimentacaoDeEstoque_date" class="form-label"> Data de Movimentação </label>
-                            <input id="movimentacaoDeEstoque_date" class="form-control" type="date" aria-label="Disabled input example" />
-                        </div>
-
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="quantidade_movimentada" class="form-label">Quantidade</label>
-                        <input id="quantidade_movimentada" class="form-control" type="number" aria-label="Disabled input example" value="1" min="1" />
-                    </div>
-
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="saidaProduto_submit">Gerar relatorio</button>
-            </div>
+            <select id="report_type" name="Tipo" class="form-select" aria-label="Tipo de relatorio" style="max-width: 20rem">
+                <option value="" selected disabled>-</option>
+                <option value="EntradaProdutos">Entrada de Produtos </option>
+                <option value="SaidaProdutos">Saida de Produtos </option>
+            </select>
         </div>
-    </div>
+
+        <div class="mb-3 col-sm-2">
+            <label for="quantidadeEntrada" class="form-label">Digite a quantidade:</label>
+            <input id="quantidadeEntrada" name="Quantidade" class="form-control" type="number" aria-label="Disabled input example" value="1" min="1" width="10" />
+        </div>
+
+        <div class="mb-3">
+            <label for="solicitadoPorId" class="form-label">Solicitado Por: </label>
+            <input id="solicitadoPorId" name="SolicitadoPorId" class="form-control" type="text" aria-label="Disabled input example" />
+        </div>
+
+        <div class="mb-3">
+            <label for="motivo" class="form-label">Motivo:</label>
+            <textarea name="Motivo" class="form-control" id="motivo" rows="4"></textarea>
+        </div>
+
+        <hr />
+        <button type="submit" class="btn btn-secondary btn-lg" id="btnCadastrar"> Cadastrar</button>
+        <a asp-controller="Products" asp-action="Index">
+            <button type="button" class="btn btn-secondary btn-lg"> Voltar </button>
+        </a>
+
+    </form>
+    
 </div>
 
-@section Style
-    {
-    <link rel="stylesheet" type="text/css" href="/css/reports-index.css" />
-}
 
-@section Scripts
-    {
-    <script src="/js/reports/index.js"></script>
-    <script src="/js/reports/movimentacao-de-estoque.js"></script>
-    <script src="/js/reports/inventario.js"></script>
-}
+
+

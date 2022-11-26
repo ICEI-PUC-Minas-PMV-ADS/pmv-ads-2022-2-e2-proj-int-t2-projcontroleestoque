@@ -104,12 +104,13 @@
                         <th class="table-field-tags" @GenerateTooltip("Tags")>Tags</th>
                         <th class="table-field-estategia-consumo" @GenerateTooltip("Estratégia")>Estratégia</th>
                         <th class="table-field-validade" @GenerateTooltip("Validade")>Validade</th>
+                        <th> Movimentação </th>
                     </tr>
                 </thead>
                 <tbody id="products-body" class="">
                     @foreach (var p in products)
                     {
-                        <tr data-product-id="@p.Id" class="c-product-row" >
+                        <tr data-product-id="@p.Id" class="c-product-row"  >
                             <td class="table-field-nome" @GenerateTooltip(p.Nome)>@p.Nome</td>
                             <td class="table-field-descricao" @GenerateTooltip(p.Descricao)>@p.Descricao</td>
                             <td class="table-field-quantidade" @GenerateTooltip(p.Quantidade.ToString())>@p.Quantidade</td>
@@ -117,6 +118,7 @@
                             <td class="table-field-tags" @GenerateTooltip(p.Tags)>@p.Tags</td>
                             <td class="table-field-estategia-consumo" @GenerateTooltip(p.EstrategiaConsumo)>@p.EstrategiaConsumo</td>
                             <td class="table-field-validade" @GenerateTooltip(p.Validade?.ToString("dd/MM/yyyy"))>@p.Validade?.ToString("dd/MM/yyyy")</td>
+                            <td><a class="btn btn-secondary btn-sm" asp-action="MoveDetails" asp-controller="Products" asp-route-id="@p.Id"> Entrada/Saída </a> </td>
                         </tr>
                     }
                 </tbody>
@@ -137,6 +139,7 @@
 </div>
 
 <script type="text/javascript">
+    
     document.addEventListener("DOMContentLoaded", () => {
         const toSnakeCase = (str) =>
             str &&
