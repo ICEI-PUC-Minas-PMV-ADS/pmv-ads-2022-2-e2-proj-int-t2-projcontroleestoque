@@ -10,7 +10,7 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        var mySQLConnection = builder.Configuration.GetConnectionString("LocalConnection");
+        var mySQLConnection = builder.Configuration.GetConnectionString("DefaultConnection");
      
         builder.Services.AddDistributedMemoryCache();
         builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -21,8 +21,8 @@ internal class Program
 
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
-            options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
-            // options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
+            // options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
+            options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
         }); // Obs Lembrar de trocar LocalConnection em appsettings.json 
 
         /*

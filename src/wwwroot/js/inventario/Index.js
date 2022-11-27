@@ -84,8 +84,8 @@ function sendPeriodicoSemanal() {
 
         console.log(data);
 
-        if (status == 200) {
-
+        if (status === 200) {
+            window.location.reload();
         }
     });
 }
@@ -115,8 +115,8 @@ function sendPeriodicoMensal() {
 
         console.log(data);
 
-        if (status == 200) {
-
+        if (status === 200) {
+            window.location.reload();
         }
     });
 }
@@ -144,8 +144,8 @@ function sendExtraordinario() {
 
         console.log(data);
 
-        if (status == 200) {
-
+        if (status === 200) {
+            window.location.reload();
         }
     });
 }

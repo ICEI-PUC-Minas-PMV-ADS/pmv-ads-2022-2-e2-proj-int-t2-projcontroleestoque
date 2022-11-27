@@ -103,7 +103,7 @@ namespace ProjControleEstoque.Utils
             switch (value)
             {
                 case "Segunda-feira": return dayOfWeek == DayOfWeek.Monday;
-                case "Terça-feira":   return dayOfWeek == DayOfWeek.Tuesday;
+                case "Terca-feira":   return dayOfWeek == DayOfWeek.Tuesday;
                 case "Quarta-feira":  return dayOfWeek == DayOfWeek.Wednesday;
                 case "Quinta-feira":  return dayOfWeek == DayOfWeek.Thursday;
                 case "Sexta-feira":   return dayOfWeek == DayOfWeek.Friday;
