@@ -10,6 +10,7 @@ using ProjControleEstoque.Context;
 using ProjControleEstoque.Models;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace ProjControleEstoque.Controllers
 {
@@ -36,15 +37,15 @@ namespace ProjControleEstoque.Controllers
         {
             
             var usuario = await _appDBcontext.Users.FirstOrDefaultAsync(m => m.Nome == user.Nome);
-            
-
+           
             if (usuario != null)
             {
                 var validaSenha = BCrypt.Net.BCrypt.Verify(user.Hash,usuario.Hash);
                 if (validaSenha)
                 {
-                    _httpContext.HttpContext.Session.SetString("User",JsonSerializer.Serialize(user));
-
+                    _httpContext.HttpContext.Session.SetString("User", System.Text.Json.JsonSerializer.Serialize(usuario));
+                    
+                     
                     return RedirectToAction("Index","Home");
 
                 }
@@ -57,7 +58,21 @@ namespace ProjControleEstoque.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-              return View(await _appDBcontext.Users.ToListAsync());
+            // Validação de Login.
+            User user = new User();
+            var userStr = _httpContext.HttpContext.Session.GetString("User");
+            if (userStr != null)
+                user = JsonConvert.DeserializeObject<User>(userStr);
+            if (userStr == null )
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            if(user.Funcao != "administrador")
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            return View(await _appDBcontext.Users.ToListAsync());
         }
        
         // GET: Users/Details/5

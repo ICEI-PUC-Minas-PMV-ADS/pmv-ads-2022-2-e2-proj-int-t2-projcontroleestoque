@@ -1,0 +1,51 @@
+﻿@model ProjControleEstoque.Models.Supplier
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Exclusão de Fornecedor</h1>
+
+<h3>Você tem certeza que deseja deletar o Fornecedor?</h3>
+<div class="m-3">
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CriadoPor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CriadoPor.Id)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete" class="m-3">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Deletar" class="btn btn-danger btn-lg" /> |
+        <a class="btn btn-danger btn-lg" asp-action="Index">Cancelar</a>
+    </form>
+</div>

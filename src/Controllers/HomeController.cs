@@ -27,6 +27,13 @@ namespace ProjControleEstoque.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            // Validação de Login.
+            var userStr = _httpContext.HttpContext.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+
+            }
 
             var user = _httpContext.HttpContext.Session.GetString("User");
             var products = _appDbContext.Products?.ToArray();
