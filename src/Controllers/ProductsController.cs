@@ -96,7 +96,7 @@ namespace ProjControleEstoque.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Motivo,Tipo,Quantidade,RegistradoPorId,ProdutoId,")] MovimentacaoEstoque movimentacaoEstoque )
+        public async Task<IActionResult> Create([Bind("Motivo,Tipo,Quantidade,RegistradoPorId,SolicitadoPorId,ProdutoId,")] MovimentacaoEstoque movimentacaoEstoque )
         {
 
             if (ModelState.IsValid)
