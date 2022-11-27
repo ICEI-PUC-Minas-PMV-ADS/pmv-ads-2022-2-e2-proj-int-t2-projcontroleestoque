@@ -1,5 +1,7 @@
 ﻿@{
     var products = ViewData["products"] as Product[];
+    var has_inventory = ViewData["has_inventory"] as bool?;
+    var user = ViewData["user"] as User;
 
     ViewData["Title"] = "Home";
 }
@@ -7,15 +9,12 @@
 <div class="text-center">
     <h1 class="display-4">Controle de Estoque</h1>
     <br />
-    <h3>Banco de dados(v0.1.2)</h3>
+    <h3>Bem vindo, @user?.Nome!</h3>
     <hr />
-    <div>
-        @if (products != null)
-        {
-            @foreach (Product product in products)
-            {
-                <div>@product.Nome</div>
-            }
-        }
-    </div>
+    @if (has_inventory != null && has_inventory == true)
+    {
+        <div class="d-flex justify-content-center align-items-center p-2" style="background-color: #eded00; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem; margin-bottom: 2rem">
+            <h3>Esta agendado para hoje a execução de um Inventário do estoque!</h3>
+        </div>
+    }
 </div>

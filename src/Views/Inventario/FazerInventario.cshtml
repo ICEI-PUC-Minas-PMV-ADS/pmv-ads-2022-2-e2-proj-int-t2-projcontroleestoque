@@ -1,0 +1,101 @@
+﻿@{
+    var redirect = ViewData["redirect"] as bool?;
+}
+
+@if (redirect.HasValue && redirect.Value)
+{
+    <div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
+        <h3>Registrar inventário</h3>
+        <hr />
+    
+        <h4>Produtos</h4>
+        <table class="table table-hover table-sm table-bordered" style="background-color: white; border-radius: 0.25rem">
+            <thead>
+                <tr>
+                    <td>Produto</td>
+                    <td>Fornecedor</td>
+                    <td>Quantidade em sistema</td>
+                    <td>Quantidade em estoque</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody id="inventoryItemList"></tbody>
+        </table>
+
+        <div class="clearfix">
+            <button class="btn btn-primary float-end mx-2" id="incluirProdutosModal">Incluir produto</button>
+            <button class="btn btn-primary float-end mx-2" id="finalizarInventario">Finalizar inventario</button>
+        </div>
+    </div>
+
+
+    <!-- Picker de produto -->
+
+    <div class="modal" id="escolherProduto" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Escolha o produto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table id="products" class="table table-hover table-sm table-bordered" style="background-color: white; border-radius: 0.25rem">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Quantidade</th>
+                                <th>Localização</th>
+                                <th>Tags</th>
+                                <th>Estratégia</th>
+                                <th>Validade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-body"></tbody>
+                        <tfoot id="products-foot"></tfoot>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="escolherProduto_submit">Confirmar produto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Criar entrada do inventario -->
+
+    <div class="modal" id="registrarNoInventario" tabindex="-1">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Incluir produto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="criarItemDoInventarioContainer">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="cadastrarItemInventario_submit">Incluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Style
+    {
+        <link rel="stylesheet" type="text/css" href="/css/inventario/fazer-inventario.css" />
+    }
+
+    @section Scripts
+    {
+        <script src="/js/inventario/fazer-inventario.js"></script>
+        <script src="/js/inventario/fazer-inventario-selecionar-produto.js"></script>
+        <script src="/js/inventario/fazer-inventario-criar-item-inventario.js"></script>
+    }
+} else {
+    <div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
+        <h3>Não ha inventário agendado para hoje</h3>
+    </div>
+}

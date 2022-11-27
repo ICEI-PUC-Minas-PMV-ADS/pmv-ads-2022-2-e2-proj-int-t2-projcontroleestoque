@@ -35,20 +35,33 @@ namespace ProjControleEstoque.Controllers
         public async Task<IActionResult> Login([Bind("Nome","Hash")] User user)
         {
             
-            var usuario = await _appDBcontext.Users.FirstOrDefaultAsync(m => m.Nome == user.Nome);
-            
+            var usuario = await _appDBcontext.Users.FirstOrDefaultAsync(m => m.Nome == user.Nome);            
 
             if (usuario != null)
             {
-                var validaSenha = BCrypt.Net.BCrypt.Verify(user.Hash,usuario.Hash);
+                var validaSenha = BCrypt.Net.BCrypt.Verify(user.Hash, usuario.Hash);
                 if (validaSenha)
                 {
-                    _httpContext.HttpContext.Session.SetString("User",JsonSerializer.Serialize(user));
+                    usuario.Hash = null;
 
-                    return RedirectToAction("Index","Home");
+                    _httpContext?.HttpContext?.Session.SetString("User", JsonSerializer.Serialize(usuario));
 
+                    var startDate = DateTime.Today.AddDays(1);
+                    var endDate = DateTime.Today.AddDays(-1);
+
+                    var inventario = _appDBcontext.Inventarios?.Where(x =>
+                        x.DataDeExecucao >= startDate && x.DataDeExecucao <= endDate).FirstOrDefault();
+
+                    // Verifica se ha inventario agendado.
+                    var agendaInventarios = _appDBcontext.AgendaInventarios?.ToArray();
+                    var precisaExecutarInventario = Utils.Utils.verificarAgendamentoInvetario(agendaInventarios);
+
+                    if (precisaExecutarInventario && inventario == null)
+                    {
+                        ViewData["has_inventory"] = true;
+                    }
+                    return RedirectToAction("Index", "Home");
                 }
-
             }
             ViewBag.Message = "Login Invalido senha ou Usuário Incorretos";
             return View();           

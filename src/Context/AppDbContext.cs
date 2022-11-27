@@ -34,5 +34,6 @@ namespace ProjControleEstoque.Context
         public DbSet<MovimentacaoEstoque>? movimentacaoEstoques { get; set; }
         public DbSet<Inventario>? Inventarios { get; set; }
         public DbSet<ItemInventario>? ItemInventarios { get; set; }
+        public DbSet<AgendaInventario> AgendaInventarios { get; set; }
     }
 }

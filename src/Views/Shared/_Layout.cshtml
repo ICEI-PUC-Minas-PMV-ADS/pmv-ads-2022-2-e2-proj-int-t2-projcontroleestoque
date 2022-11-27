@@ -100,10 +100,16 @@
                             <a class="nav-link" asp-controller="Product" asp-action="Index">Produtos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Reports" asp-action="Index">Inventario</a>
+                            <a class="nav-link" asp-controller="Reports" asp-action="Index">Relatorios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Products" asp-action="Index">Lista de Produtos</a>
+                            <a class="nav-link" asp-controller="Inventario" asp-action="Index">Inventário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Inventario" asp-action="FazerInventario">Fazer Inventário</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Products" asp-action="Index">Consulta de Produtos</a>
                         </li>
                     </ul>
                 </div>
@@ -119,6 +125,8 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/index.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

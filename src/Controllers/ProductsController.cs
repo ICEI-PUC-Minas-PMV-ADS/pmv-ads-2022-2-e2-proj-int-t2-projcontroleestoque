@@ -12,15 +12,23 @@ namespace ProjControleEstoque.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDbContext _appDbContext;
+        private readonly IHttpContextAccessor _httpContext;
 
-        public ProductsController(ILogger<HomeController> logger, AppDbContext appDbContext)
+        public ProductsController(ILogger<HomeController> logger, AppDbContext appDbContext, IHttpContextAccessor httpContext)
         {
             _logger = logger;
             _appDbContext = appDbContext;
+            _httpContext = httpContext;
         }
 
         public IActionResult Index([FromQuery] int Offset = 0, [FromQuery] int Limit = 20)
         {
+            var userStr = _httpContext?.HttpContext?.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
             var products = _appDbContext
                 .Products?
                     .Skip(Offset)
@@ -38,20 +46,51 @@ namespace ProjControleEstoque.Controllers
 
         [HttpGet]
         public IActionResult Get([FromQuery] int productId) {
-            var product = _appDbContext.Products?.Where(x => x.Id == productId).First();
-            return Ok(Json(new { status = 200, product = product }));
+            var userStr = _httpContext?.HttpContext?.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            var product = _appDbContext.Products?.Where(x => x.Id == productId).FirstOrDefault();
+
+            if (product != null)
+            {
+                _appDbContext.Entry(product).Reference(x => x.Fornecedor).Load();
+            }
+            return Ok(Json(new { status = 200, data = new { result = product } }));
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll([FromQuery] int Offset = 0, [FromQuery] int Limit = 15)
         {
-            var product = _appDbContext.Products?.ToArray();
-            return Ok(Json(new { status = 200, product = product }));
+            var userStr = _httpContext?.HttpContext?.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            var results = _appDbContext.Products?.Skip(Offset).Take(Limit).ToArray();
+            var totalCount = _appDbContext.Products?.Count();
+            var count = results?.Length;
+
+            return Ok(Json(new { status = 200, data = new {
+                results = results,
+                totalCount = totalCount,
+                count = count,
+                offset = Offset,
+                limit = Limit,
+            } }));
         }
 
         [HttpGet]
         public IActionResult QueryProduct([FromQuery] string q, [FromQuery] int Offset = 0, [FromQuery] int Limit = 20)
         {
+            var userStr = _httpContext?.HttpContext?.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
             if (q != null && q.Length >= 3)
             {
                 var queryProducts = _appDbContext.Products?
@@ -92,6 +131,11 @@ namespace ProjControleEstoque.Controllers
                 offset = Offset,
                 pageCount = Limit
             }));
+        }
+
+        public IActionResult AgendarReposicao()
+        {
+            return View();
         }
     }
 }

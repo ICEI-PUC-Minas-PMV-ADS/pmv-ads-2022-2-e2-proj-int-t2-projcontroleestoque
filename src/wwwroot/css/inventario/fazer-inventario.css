@@ -1,0 +1,35 @@
+﻿tbody > tr > td {
+    cursor: pointer;
+}
+
+.table > tbody > tr > td {
+    cursor: pointer;
+}
+
+.table > thead > tr > th {
+    cursor: pointer;
+}
+
+.c-pagination {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.c-pagination > li {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.c-pagination > li.enabled {
+    color: #000;
+    cursor: pointer;
+}
+
+.c-pagination > li.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}

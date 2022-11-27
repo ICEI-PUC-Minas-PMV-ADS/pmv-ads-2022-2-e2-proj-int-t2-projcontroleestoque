@@ -4,20 +4,21 @@ using ProjControleEstoque.Context;
 using ProjControleEstoque.Models;
 using ProjControleEstoque.QueryParameters;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace ProjControleEstoque.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly AppDbContext _appDbContext;
+        private readonly AppDbContext _appDBContext;
         private readonly IHttpContextAccessor _httpContext;
 
         public HomeController(ILogger<HomeController> logger, AppDbContext appDbContext, IHttpContextAccessor httpContextAccessor)
         {
             _httpContext = httpContextAccessor;
             _logger = logger;
-            _appDbContext = appDbContext;
+            _appDBContext = appDbContext;
         }
 
         /***
@@ -27,25 +28,30 @@ namespace ProjControleEstoque.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            var userStr = _httpContext?.HttpContext?.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            ViewData["user"] = JsonSerializer.Deserialize<User>(userStr);
 
-            var user = _httpContext.HttpContext.Session.GetString("User");
-            var products = _appDbContext.Products?.ToArray();
-            ViewData["products"] = products;
-            return View();
-        }
+            if (userStr != null)
+            {
+                var startDate = DateTime.Today.AddDays(1);
+                var endDate = DateTime.Today.AddDays(-1);
 
-        /***
-         * Recebe as informação da pagina e salva no banco de dados.
-         */
+                var inventario = _appDBContext.Inventarios?.Where(x =>
+                    x.DataDeExecucao >= startDate && x.DataDeExecucao <= endDate).FirstOrDefault();
 
-        [HttpPost]
-        public IActionResult AddProduct([FromQuery] ProductParameters productParams)
-        {
-            Product product = new Product { Nome = productParams.ProductName };
+                // Verifica se ha inventario agendado.
+                var agendaInventarios = _appDBContext.AgendaInventarios?.Where(x => x.InventarioId == null).ToArray();
+                var precisaExecutarInventario = Utils.Utils.verificarAgendamentoInvetario(agendaInventarios);
 
-            _appDbContext.Add(product);
-            _appDbContext.SaveChanges();
-
+                if (precisaExecutarInventario && inventario == null)
+                {
+                    ViewData["has_inventory"] = true;
+                }
+            }
             return View();
         }
 

@@ -1,0 +1,94 @@
+﻿@{
+    var results = ViewData["results"] as AgendaInventario[];
+}
+<div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem">
+    <div class="d-flex justify-content-between">
+        <h3>Inventário</h3>
+        <select id="inventario_type" class="form-select" aria-label="Tipo de relatorio" style="max-width: 20rem">
+            <option value="" selected disabled>-</option>
+            <option value="Periodico semanal">Periódico semanal</option>
+            <option value="Periodico mensal">Periódico mensal</option>
+            <option value="Extraordinario">Extraordinario</option>
+        </select>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        <div id="periodico_semanal" class="col-4 offset-4" style="display: none">
+            <div>
+                <label>Selecione o dia da semana:</label>
+                <select class="form-select" id="inventory_date_periodico_semanal">
+                    <option value="" selected disabled>-</option>
+                    <option value="Segunda-feira">Segunda-feira</option>
+                    <option value="Terça-feira">Terça-feira</option>
+                    <option value="Quarta-feira">Quarta-feira</option>
+                    <option value="Quinta-feira">Quinta-feira</option>
+                    <option value="Sexta-feira">Sexta-feira</option>
+                    <option value="Sabado">Sabado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="periodico_mensal" class="col-4 offset-4" style="display: none">
+            <div>
+                <label for="inventory_date_periodico_mensal">Selecione o dia:</label>
+                <select class="form-select" id="inventory_date_periodico_mensal">
+                    <option value="" selected disabled>-</option>
+                </select>
+            </div>
+
+            <div class="mt-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="inventory_date_periodico_mensal_primeiro_dia_util">
+                    <label class="form-check-label" for="inventory_date_periodico_mensal_primeiro_dia_util">
+                        Agendar para o proximo dia util:
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div id="extraordinario" class="col-4 offset-4" style="display: none">
+            <label for="inventory_date_extraordinario">Selecione o dia:</label>
+            <input type="date" id="inventory_date_extraordinario" class="form-control" />            
+        </div>
+
+        <div id="container_botao" class="col-4 offset-4 mt-4" style="display: none">
+            <button id="confirm_button" type="button" class="btn btn-primary w-100">Confirmar</button>
+        </div>
+    </div>
+</div>
+
+@if (results != null && results.Length > 0)
+{
+    <div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 2rem">
+        <h3>Agendamento de inventários</h3>
+        <hr />
+
+        <table class="table table-hover table-sm table-bordered" style="background-color: white; border-radius: 0.25rem">
+            <thead>
+                <tr>
+                    <th>Solicitado por</th>
+                    <th>Tipo</th>
+                    <th>Query</th>
+                </tr>
+            </thead>
+            <tbody id="products-body" class="">
+                @foreach (var r in results)
+                {
+                    <tr>
+                        <td>@r.SolicitadoPor?.Nome</td>
+                        <td>@r.Tipo</td>
+                        <td>@r.Agendamento</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+@section Scripts
+{
+    <script src="/js/inventario/index.js"></script>
+}
