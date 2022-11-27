@@ -4,9 +4,7 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Exclusão de Fornecedor</h1>
-
-<h3>Você tem certeza que deseja deletar o Fornecedor?</h3>
+<h3>Você tem certeza que deseja excluir o Fornecedor?</h3>
 <div class="m-3">
     <hr />
     <dl class="row">
@@ -45,7 +43,7 @@
     
     <form asp-action="Delete" class="m-3">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Deletar" class="btn btn-danger btn-lg" /> |
-        <a class="btn btn-danger btn-lg" asp-action="Index">Cancelar</a>
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-secondary" asp-action="Index">Voltar</a>
     </form>
 </div>

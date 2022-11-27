@@ -4,10 +4,18 @@
     ViewData["Title"] = "Login";
 }
 
+<style>
+    #tcard
+    {
+        position: relative;
+        bottom: 2em;
+    }
+</style>
+
  <h2> @ViewBag.message </h2>
- <div class="container p-2" style="height: 300px; width: 400px;">
-        <div class="card card-container p-4">
-            <img id="profile-img"  class="profile-img-card mb-3" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+ <div class="container col-sm-9 col-md-4 col-lg-4" >
+    <div class="card card-container p-4" id="tcard">
+            <img id="profile-img" class="profile-img-card mb-3" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
            
             <form asp-action="Login" class="form-signin b-4">
                 <span id="reauth-email" class="reauth-email"></span>
@@ -20,10 +28,9 @@
                     </label>
                 </div>
             
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
-                <a asp-controller="Home" asp-action="Index">
-                    <button  class="btn btn-lg btn-primary btn-block btn-signin" type="button"> Voltar</button>
-                </a>
+                <button class="btn btn-primary btn-block btn-signin" type="submit">Entrar</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-block btn-signin" type="submit">Voltar</a>
+                <a asp-controller="Users" asp-action="Create" class="btn btn-secondary">Cadastrar</a>
                 <div>
                     <a  href="#" class="forgot-password">
                             Esqueceu a senha?

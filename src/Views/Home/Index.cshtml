@@ -4,18 +4,37 @@
     ViewData["Title"] = "Home";
 }
 
+<style>
+
+    .qnt-component
+    {
+        list-style: none;
+        padding: 1em;
+        box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
 <div class="text-center">
-    <h1 class="display-4">Controle de Estoque</h1>
-    <br />
-    <h3>Banco de dados(v0.1.2)</h3>
-    <hr />
-    <div>
+
+    <p class="fs-1 fw-bolder">
+        Notificações
+    </p>
+    <hr/>
+
+    <ul>
         @if (products != null)
         {
             @foreach (Product product in products)
             {
-                <div>@product.Nome</div>
+                if (product.Quantidade <= 4)
+                {
+                    <li class="qnt-component list-group-item-danger list-group-horizontal-lg">O produto <strong>@product.Nome</strong> está em baixa quantidade!</li>
+                }
+                if (product.Validade.Value.Month == DateTime.Now.Month)
+                {
+                    <li class=" qnt-component list-group-item-warning list-group-horizontal-lg">O produto <strong>@product.Nome</strong> está próximo da vencer!</li>
+                }
             }
         }
-    </div>
+    </ul>
+    
 </div>

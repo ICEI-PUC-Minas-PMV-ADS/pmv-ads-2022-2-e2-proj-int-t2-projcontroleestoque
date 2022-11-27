@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -26,7 +25,6 @@ namespace ProjControleEstoque.Migrations
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                 });
-
 
             migrationBuilder.CreateTable(
                 name: "Inventarios",
@@ -236,7 +234,6 @@ namespace ProjControleEstoque.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
-
         }
     }
 }

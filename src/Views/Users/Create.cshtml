@@ -5,7 +5,7 @@
     var User = ViewData["nome"] as string;
     var fieldError = ViewData["error"] as FieldError;
 
-    ViewData["Title"] = "Usuario";
+    ViewData["Title"] = "Cadastro";
 }
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -16,13 +16,20 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Documento</title>
+
+    <style>
+        body
+        {
+            padding-top: 4.5em;
+        }
+    </style>
 </head>
 <body>
 
 
     <div class="container align-center">
 
-        <h1> Formulario de Crição de Usuário </h1>
+        <h1> Formulário de Crição de Usuário </h1>
         <form enctype="multipart/form-data" asp-action="Create" asp-controller="Users" method="Post">
             <div class="mb-3">
                 <label for="nomeUsuario" class="form-label">Nome Completo </label>

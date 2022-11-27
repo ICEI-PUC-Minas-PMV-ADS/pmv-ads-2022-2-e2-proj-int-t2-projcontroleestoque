@@ -9,7 +9,7 @@
     .p-4
     {
         position: relative;
-        top: 6em;
+        top: 2em;
         width: 90%;
     }
 
@@ -42,8 +42,18 @@
    {
        text-decoration: none;
        color: black;
+
    }
 
+   #pop
+   {
+       float: right;
+   }
+
+    #create-btn {
+        margin-top: 2em;
+        float: right;
+    }
 
 </style>
 
@@ -53,7 +63,6 @@
     <h3>Produtos</h3>
     <hr />
         <table class="table-bordered" id="table">
-
             <!-- Table Head -->
             <thead>
                 <tr>
@@ -84,8 +93,7 @@
                     <th>Ação</th>
                 </tr>
             </thead>
-
-                <!-- Table Body -->
+        <!-- Table Body -->
         <tbody class="tbody">
         @foreach (var item in Model)
         {

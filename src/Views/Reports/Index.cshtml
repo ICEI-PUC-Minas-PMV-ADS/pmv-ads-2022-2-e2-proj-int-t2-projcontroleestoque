@@ -1,12 +1,13 @@
 ﻿@using Newtonsoft.Json;
 @inject IHttpContextAccessor _httpContext;
 @{
-    
+
     var userStr = _httpContext.HttpContext.Session.GetString("User");
     var  user = JsonConvert.DeserializeObject<User>(userStr);
-   
-}
 
+    ViewData["Title"] = "Relatórios";
+
+}
 
 
 <div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem">

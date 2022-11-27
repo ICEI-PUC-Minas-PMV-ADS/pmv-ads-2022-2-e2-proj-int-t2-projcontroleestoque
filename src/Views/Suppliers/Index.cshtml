@@ -1,65 +1,129 @@
 ﻿@model IEnumerable<ProjControleEstoque.Models.Supplier>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Fornecedores";
 }
 
-<h1>Index</h1>
+<style>
+    
+    .p-4
+    {
+        position: relative;
+        top: 2em;
+        width: 90%;
+    }
 
-<p>
-    <a class="btn btn-info m-2" asp-action="Create">Criar Novo Fornecedor</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Criado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CriadoPor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Criado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CriadoPor.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    #table
+    {
+        background-color: white;
+    }
+
+   .tbody td
+   {
+       width: 20%;
+       overflow: hidden;
+       padding: 3px;
+   }
+
+   .tbody .dropdown
+   {
+        overflow: visible;
+        text-align: center;
+   }
+
+   .dropdown-menu
+   {
+       background-color: lightgray;
+       padding: 2px;
+   }
+
+   .dropdown-menu li a, .dropdown a
+   {
+       text-decoration: none;
+       color: black;
+
+   }
+
+   #pop
+   {
+       float: right;
+   }
+
+    #create-btn {
+        margin-top: 2em;
+        float: right;
+    }
+
+</style>
+
+<a class="btn btn-secondary btn-lg" id="create-btn" asp-controller="Suppliers" asp-action="Create">Criar novo Fornecedor</a>
+
+<div class="p-4 table-responsive" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
+    <h3>Fornecedores</h3>
+    <hr />
+    <table class="table-bordered" id="table">
+        <!-- Table Head -->
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefone)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Criado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CriadoPor)
+                </th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <!-- Table Body -->
+        <tbody class="tbody">
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Endereco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Criado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CriadoPorId)
+                    </td>
+                    <!-- Dropdown -->
+                    <td class="dropdown">
+                        <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-action="Edit" asp-route-id="@item.Id">Editar</a></li>
+                            <li><a asp-action="Details" asp-route-id="@item.Id">Detalhes</a></li>
+                            <li><a asp-action="Delete" asp-route-id="@item.Id">Excluir</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

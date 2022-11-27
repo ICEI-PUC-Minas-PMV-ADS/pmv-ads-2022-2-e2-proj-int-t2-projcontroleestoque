@@ -51,7 +51,7 @@ namespace ProjControleEstoque.Controllers
                 }
 
             }
-            ViewBag.Message = "Login Invalido senha ou Usuário Incorretos";
+            ViewBag.Message = "Login Inválido senha ou usuário incorretos";
             return View();           
         }
 

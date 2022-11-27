@@ -12,7 +12,7 @@ using ProjControleEstoque.Context;
 namespace ProjControleEstoque.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221121011405_test")]
+    [Migration("20221127144429_test")]
     partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

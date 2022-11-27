@@ -3,13 +3,13 @@
 @inject IHttpContextAccessor _httpContext;
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes";
     var userStr = _httpContext.HttpContext.Session.GetString("User");
     var user = JsonConvert.DeserializeObject<User>(userStr);
 }
 
 <h1>Detalhes do Usuário</h1>
-<h1>@user.Nome </h1>
+<h3>@user.Nome </h3>
 <div>
     <hr />
     <dl class="row">
@@ -39,6 +39,9 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
     </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-secondary" id="edit-btn">Editar</a>
+    <a asp-action="Index" id="back-btn" class="btn btn-danger" id="back-btn">Voltar</a>
 </div>
 
 

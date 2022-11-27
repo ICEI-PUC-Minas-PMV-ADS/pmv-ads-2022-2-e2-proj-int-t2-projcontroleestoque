@@ -21,7 +21,8 @@ internal class Program
 
         builder.Services.AddDbContext<AppDbContext>(options =>
         {
-            options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
+            // options.UseMySql(mySQLConnection, ServerVersion.AutoDetect(mySQLConnection));
         }); // Obs Lembrar de trocar LocalConnection em appsettings.json 
 
         /*
