@@ -10,18 +10,17 @@ using ProjControleEstoque.Models;
 
 namespace ProjControleEstoque.Controllers
 {
-    public class ProductController : Controller
+    public class SuppliersController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContext;
-
-        public ProductController(AppDbContext context, IHttpContextAccessor httpContext)
+        public SuppliersController(AppDbContext context, IHttpContextAccessor httpContext)
         {
             _context = context;
             _httpContext = httpContext;
         }
 
-        // GET: Product
+        // GET: Suppliers
         public async Task<IActionResult> Index()
         {
             // Validação de Login.
@@ -32,74 +31,78 @@ namespace ProjControleEstoque.Controllers
 
             }
 
-            return View(await _context.Products.ToListAsync());
+            var appDbContext = _context.Suppliers.Include(s => s.CriadoPor);
+            return View(await appDbContext.ToListAsync());
         }
 
-        // GET: Product/Details/5
+        // GET: Suppliers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Suppliers == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var supplier = await _context.Suppliers
+                .Include(s => s.CriadoPor)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (supplier == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(supplier);
         }
 
-        // GET: Product/Create
+        // GET: Suppliers/Create
         public IActionResult Create()
         {
+            ViewData["CriadoPorId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
-        // POST: Product/Create
+        // POST: Suppliers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,Quantidade,Localizacao,Tags,EstrategiaConsumo,Criado,Validade")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Endereco,Telefone,Email,Criado,CriadoPorId")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(supplier);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            ViewData["CriadoPorId"] = new SelectList(_context.Users, "Id", "Id", supplier.CriadoPorId);
+            return View(supplier);
         }
 
-        // GET: Product/Edit/5
+        // GET: Suppliers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Suppliers == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            var supplier = await _context.Suppliers.FindAsync(id);
+            if (supplier == null)
             {
                 return NotFound();
             }
-            return View(product);
+            ViewData["CriadoPorId"] = new SelectList(_context.Users, "Id", "Id", supplier.CriadoPorId);
+            return View(supplier);
         }
 
-        // POST: Product/Edit/5
+        // POST: Suppliers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Descricao,Quantidade,Localizacao,Tags,EstrategiaConsumo,Criado,Validade")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Endereco,Telefone,Email,Criado,CriadoPorId")] Supplier supplier)
         {
-            if (id != product.Id)
+            if (id != supplier.Id)
             {
                 return NotFound();
             }
@@ -108,12 +111,12 @@ namespace ProjControleEstoque.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(supplier);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!SupplierExists(supplier.Id))
                     {
                         return NotFound();
                     }
@@ -124,49 +127,51 @@ namespace ProjControleEstoque.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            ViewData["CriadoPorId"] = new SelectList(_context.Users, "Id", "Id", supplier.CriadoPorId);
+            return View(supplier);
         }
 
-        // GET: Product/Delete/5
+        // GET: Suppliers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Suppliers == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var supplier = await _context.Suppliers
+                .Include(s => s.CriadoPor)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (supplier == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(supplier);
         }
 
-        // POST: Product/Delete/5
+        // POST: Suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Products == null)
+            if (_context.Suppliers == null)
             {
-                return Problem("Entity set 'AppDbContext.Products'  is null.");
+                return Problem("Entity set 'AppDbContext.Suppliers'  is null.");
             }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+            var supplier = await _context.Suppliers.FindAsync(id);
+            if (supplier != null)
             {
-                _context.Products.Remove(product);
+                _context.Suppliers.Remove(supplier);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private bool SupplierExists(int id)
         {
-          return _context.Products.Any(e => e.Id == id);
+          return _context.Suppliers.Any(e => e.Id == id);
         }
     }
 }

@@ -1,56 +1,65 @@
-﻿@model IEnumerable<ProjControleEstoque.Models.User>
+﻿@model IEnumerable<ProjControleEstoque.Models.Supplier>
 
 @{
-    ViewData["Title"] = "Usuários";
+    ViewData["Title"] = "Fornecedores";
 }
 
 <style>
-    .p-4 {
+    
+    .p-4
+    {
         position: relative;
         top: 2em;
         width: 90%;
     }
 
-    #table {
+    #table
+    {
         background-color: white;
     }
 
+   .tbody td
+   {
+       width: 20%;
+       overflow: hidden;
+       padding: 3px;
+   }
 
-    .tbody td {
-        width: 20%;
-        overflow: hidden;
-        padding: 3px;
-    }
-
-    .tbody .dropdown {
+   .tbody .dropdown
+   {
         overflow: visible;
         text-align: center;
-    }
+   }
 
-    .dropdown-menu {
-        background-color: lightgray;
-        padding: 2px;
-    }
+   .dropdown-menu
+   {
+       background-color: lightgray;
+       padding: 2px;
+   }
 
-        .dropdown-menu li a, .dropdown a {
-            text-decoration: none;
-            color: black;
-        }
+   .dropdown-menu li a, .dropdown a
+   {
+       text-decoration: none;
+       color: black;
 
-    #pop {
-        float: right;
-    }
+   }
+
+   #pop
+   {
+       float: right;
+   }
 
     #create-btn {
         margin-top: 2em;
         float: right;
     }
+
 </style>
 
-<a class="btn btn-secondary btn-lg" id="create-btn" asp-controller="Users" asp-action="Create">Cadastrar</a>
+<a class="btn btn-secondary btn-lg" id="create-btn" asp-controller="Suppliers" asp-action="Create">Criar novo Fornecedor</a>
 
 <div class="p-4 table-responsive" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
-    <h3>Usuários</h3>
+    <h3>Fornecedores</h3>
     <hr />
     <table class="table-bordered" id="table">
         <!-- Table Head -->
@@ -59,15 +68,20 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Nome)
                 </th>
-
                 <th>
-                    @Html.DisplayNameFor(model => model.Funcao)
+                    @Html.DisplayNameFor(model => model.Endereco)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DataCadastro)
+                    @Html.DisplayNameFor(model => model.Telefone)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Criado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CriadoPor)
                 </th>
                 <th>Ação</th>
             </tr>
@@ -81,17 +95,21 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Nome)
                     </td>
-
                     <td>
-                        @Html.DisplayFor(modelItem => item.Funcao)
+                        @Html.DisplayFor(modelItem => item.Endereco)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.DataCadastro)
+                        @Html.DisplayFor(modelItem => item.Telefone)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
-
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Criado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CriadoPorId)
+                    </td>
                     <!-- Dropdown -->
                     <td class="dropdown">
                         <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -108,3 +126,4 @@
         </tbody>
     </table>
 </div>
+

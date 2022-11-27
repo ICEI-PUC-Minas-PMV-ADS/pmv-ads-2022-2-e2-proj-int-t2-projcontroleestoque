@@ -1,7 +1,7 @@
 ﻿@model ProjControleEstoque.Models.User
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
 <h1>Edição de Dados do Usuário</h1>
@@ -25,7 +25,7 @@
                 <label asp-for="Funcao" class="control-label">Informe a função do Usuário</label>
                 <select asp-for="Funcao" class="form-select">
                     <option value="administrador"> Administrador </option>
-                    <option value="usuario"> Usuário </option>
+                    <option value="usuario">Usuário</option>
                 </select>
                 <span asp-validation-for="Funcao" class="text-danger"></span>
             </div>
@@ -38,7 +38,7 @@
             <div class="form-group mb-3">
                 <input type="submit" value="Salvar Alterações" class="btn btn-secondary btn-lg" />
                 <a asp-action="Index">
-                    <input type="button" value="voltar" class="btn btn-secondary btn-lg" />
+                    <input type="button" value="Voltar" class="btn btn-secondary btn-lg" />
                 </a>
             </div>
 

@@ -1,7 +1,13 @@
-﻿@{
-    ViewData["Title"] = "Relatórios";
-}
+﻿@using Newtonsoft.Json;
+@inject IHttpContextAccessor _httpContext;
+@{
 
+    var userStr = _httpContext.HttpContext.Session.GetString("User");
+    var  user = JsonConvert.DeserializeObject<User>(userStr);
+
+    ViewData["Title"] = "Relatórios";
+
+}
 
 
 <div class="p-4" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa; margin-top: 6rem">
@@ -78,7 +84,7 @@
                 <form>
                     <div class="mb-3">
                         <label for="inventario_realizadoPor" class="form-label">Realizado Por</label>
-                        <input id="inventario_realizadoPor" class="form-control" type="text" aria-label="Disabled input example" />
+                        <input id="inventario_realizadoPor" class="form-control" type="text" value="@user.Nome"  aria-label="Disabled input example" />
                     </div>
 
                     <div class="mb-3">

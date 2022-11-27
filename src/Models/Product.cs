@@ -18,7 +18,6 @@ namespace ProjControleEstoque.Models
         public string? EstrategiaConsumo { get; set; }
         public DateTime? Criado { get; set; }
         public DateTime? Validade { get; set; }
-
         public Supplier? Fornecedor { get; set; }
     }
 }

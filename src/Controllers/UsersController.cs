@@ -10,6 +10,7 @@ using ProjControleEstoque.Context;
 using ProjControleEstoque.Models;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace ProjControleEstoque.Controllers
 {
@@ -63,14 +64,28 @@ namespace ProjControleEstoque.Controllers
                     return RedirectToAction("Index", "Home");
                 }
             }
-            ViewBag.Message = "Login Invalido senha ou Usuário Incorretos";
+            ViewBag.Message = "Login Inválido senha ou usuário incorretos";
             return View();           
         }
 
         // GET: Users
         public async Task<IActionResult> Index()
         {
-              return View(await _appDBcontext.Users.ToListAsync());
+            // Validação de Login.
+            User user = new User();
+            var userStr = _httpContext.HttpContext.Session.GetString("User");
+            if (userStr != null)
+                user = JsonConvert.DeserializeObject<User>(userStr);
+            if (userStr == null )
+            {
+                return RedirectToAction("Login", "Users");
+            }
+            if(user.Funcao != "administrador")
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            return View(await _appDBcontext.Users.ToListAsync());
         }
        
         // GET: Users/Details/5
