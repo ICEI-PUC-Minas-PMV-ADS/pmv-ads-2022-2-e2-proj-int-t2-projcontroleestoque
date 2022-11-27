@@ -1,12 +1,15 @@
 ﻿@using Newtonsoft.Json;
 @model ProjControleEstoque.Models.Product
-
 @inject IHttpContextAccessor _httpContext;
+@using ProjControleEstoque.Context;
+@using ProjControleEstoque.Models;
+@using Microsoft.AspNetCore.Html
+
 @{
     ViewData["Title"] = "moveProduct";
     var userStr = _httpContext.HttpContext.Session.GetString("User");
     var user = JsonConvert.DeserializeObject<User>(userStr);
-    ViewData["Teste"] = userStr;
+    var userList = ViewData["userList"] as User[];
 
 }
 
@@ -65,13 +68,23 @@
             <input id="quantidadeEntrada" name="Quantidade" class="form-control" type="number" aria-label="Disabled input example" value="1" min="1" width="10" />
         </div>
 
+        
+        
         <div class="mb-3">
-            <label for="solicitadoPorId" class="form-label">Solicitado Por: </label>
-            <input id="solicitadoPorId" name="SolicitadoPorId" class="form-control" type="text" aria-label="Disabled input example" />
+            <label for="SolicitadoPor" class="form-label">Solicitado por:</label>
+            <select id="SolicitadoPor" name="SolicitadoPorId" class="form-select" aria-label="Tipo de relatorio" style="max-width: 20rem">
+                <option value="" selected disabled> - </option>
+                @foreach (var u in userList)
+                {
+                          <option value="@u.Id"> @u.Nome </option>
+                } 
+
+            </select>
         </div>
 
+
         <div class="mb-3">
-            <label for="motivo" class="form-label">Motivo:</label>
+            <label for="Motivo" class="form-label">Motivo:</label>
             <textarea name="Motivo" class="form-control" id="motivo" rows="4"></textarea>
         </div>
 

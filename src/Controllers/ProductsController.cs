@@ -25,6 +25,14 @@ namespace ProjControleEstoque.Controllers
 
         public IActionResult Index([FromQuery] int Offset = 0, [FromQuery] int Limit = 20)
         {
+            // Validação de Login.
+            var userStr = _httpContext.HttpContext.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+
+            }
+
             var products = _appDbContext
                 .Products?
                     .Skip(Offset)
@@ -67,6 +75,9 @@ namespace ProjControleEstoque.Controllers
                 return RedirectToAction("Login","Users");
 
             }
+
+            var userList = _appDbContext.Users.ToArray();
+            ViewData["userList"] = userList;
 
             if (id == null || _appDbContext.Products == null)
             {

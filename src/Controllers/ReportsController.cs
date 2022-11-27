@@ -38,6 +38,7 @@ namespace ProjControleEstoque.Controllers
 
         public IActionResult Index()
         {
+          
             return View();
         }
 

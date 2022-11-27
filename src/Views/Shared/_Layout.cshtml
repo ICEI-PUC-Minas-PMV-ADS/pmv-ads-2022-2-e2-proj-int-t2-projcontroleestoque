@@ -57,7 +57,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a class="navbar-brand" asp-controller="Users" asp-action="Index">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
@@ -96,17 +96,23 @@
                             <a class="nav-link active" aria-current="page" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Product" asp-action="Index">Produtos</a>
+                            <a class="nav-link" asp-controller="Product" asp-action="Index">Cadastro de Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Reports" asp-action="Index">Inventario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Products" asp-action="Index">Lista de Produtos</a>
+                            <a class="nav-link" asp-controller="Products" asp-action="Index">Controle do Estoque</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="suppliers" asp-action="Index"> Fornecedores </a>
                         </li>
+                        @if(user.Funcao == "administrador")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Users" asp-action="Index"> Editar Usuários </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

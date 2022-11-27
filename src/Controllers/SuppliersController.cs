@@ -13,15 +13,24 @@ namespace ProjControleEstoque.Controllers
     public class SuppliersController : Controller
     {
         private readonly AppDbContext _context;
-
-        public SuppliersController(AppDbContext context)
+        private readonly IHttpContextAccessor _httpContext;
+        public SuppliersController(AppDbContext context, IHttpContextAccessor httpContext)
         {
             _context = context;
+            _httpContext = httpContext;
         }
 
         // GET: Suppliers
         public async Task<IActionResult> Index()
         {
+            // Validação de Login.
+            var userStr = _httpContext.HttpContext.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+
+            }
+
             var appDbContext = _context.Suppliers.Include(s => s.CriadoPor);
             return View(await appDbContext.ToListAsync());
         }

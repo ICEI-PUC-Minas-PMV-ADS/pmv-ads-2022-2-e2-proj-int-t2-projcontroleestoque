@@ -13,17 +13,26 @@ namespace ProjControleEstoque.Controllers
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
-      
-        
-        public ProductController(AppDbContext context)
+        private readonly IHttpContextAccessor _httpContext;
+
+        public ProductController(AppDbContext context, IHttpContextAccessor httpContext)
         {
             _context = context;
+            _httpContext = httpContext;
         }
 
         // GET: Product
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Products.ToListAsync());
+            // Validação de Login.
+            var userStr = _httpContext.HttpContext.Session.GetString("User");
+            if (userStr == null)
+            {
+                return RedirectToAction("Login", "Users");
+
+            }
+
+            return View(await _context.Products.ToListAsync());
         }
 
         // GET: Product/Details/5
