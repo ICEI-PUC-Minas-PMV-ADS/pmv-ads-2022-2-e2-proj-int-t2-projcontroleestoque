@@ -78,6 +78,7 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 | RF-017 | O sistema deve permitir a edição da reposição de estoque    | ALTA      |
 | RF-018 | O sistema deve permitir ao Supervisor aprovar ou rejeitar a solicitação de reposição    | ALTA      |
 | RF-019 | O sistema deve informar a situação do pagamento da reposição     | MÉDIA      |
+| RF-020 | O sistema deve registrar o inventario. | ALTA |
 
 
 ### Requisitos não Funcionais
