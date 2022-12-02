@@ -1,60 +1,74 @@
 ﻿@model ProjControleEstoque.Models.Product
-
+@using ProjControleEstoque.Models;
+@using ProjControleEstoque.Context;
+@using Microsoft.AspNetCore.Html
 @{
     ViewData["Title"] = "Criar";
+    var suppliers = ViewData["supplierList"] as Supplier[];
+
 }
 
-<h1>Criar Produto</h1>
+<div class="container formu">
+    <h1>Formulário Cadastro de Produto</h1>
+    <hr />
 
-
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="m-3">
+        <form class="row g-3" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="mb-3 col-md-8">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Descricao" class="control-label"></label>
-                <input asp-for="Descricao" class="form-control" />
-                <span asp-validation-for="Descricao" class="text-danger"></span>
+
+            <div class="mb-3 col-md-4">
+                <label for="FornecedorId" class="control-label">Fornecedor do Produto:</label>
+                <select id="FornecedorId" name="FornecedorId" class="form-select" aria-label="Tipo de relatorio" style="max-width: 20rem">
+                    <option value="" selected disabled> - </option>
+                    @foreach (var u in suppliers)
+                    {
+                        <option value="@u.Id"> @u.Nome </option>
+                    }
+
+                </select>
             </div>
-            <div class="form-group">
+
+            <div class="mb-3 col-md-2">
                 <label asp-for="Quantidade" class="control-label"></label>
                 <input asp-for="Quantidade" class="form-control" />
                 <span asp-validation-for="Quantidade" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3 col-md-5">
                 <label asp-for="Localizacao" class="control-label"></label>
                 <input asp-for="Localizacao" class="form-control" />
                 <span asp-validation-for="Localizacao" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3 col-md-5">
                 <label asp-for="Tags" class="control-label"></label>
                 <input asp-for="Tags" class="form-control" />
                 <span asp-validation-for="Tags" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="mb-3 col-md-9">
                 <label asp-for="EstrategiaConsumo" class="control-label"></label>
                 <input asp-for="EstrategiaConsumo" class="form-control" />
                 <span asp-validation-for="EstrategiaConsumo" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Criado" class="control-label"></label>
-                <input asp-for="Criado" class="form-control" />
-                <span asp-validation-for="Criado" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            
+            <div class="mb-3 col-md-3">
                 <label asp-for="Validade" class="control-label"></label>
                 <input asp-for="Validade" class="form-control" />
                 <span asp-validation-for="Validade" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-secondary" id="save-btn" />
-                <a asp-action="Index" class="btn btn-danger" id="back-btn">Voltar</a>
+
+            <div class="mb-3 col-md-12">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" rows="4"/>
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3 form-group">
+                <input type="submit" value="Salvar" class="btn btn-secondary btn-lg" id="save-btn" />
+                <a asp-action="Index" class="btn btn-danger btn-lg" id="back-btn">Voltar</a>
             </div>
         </form>
     </div>

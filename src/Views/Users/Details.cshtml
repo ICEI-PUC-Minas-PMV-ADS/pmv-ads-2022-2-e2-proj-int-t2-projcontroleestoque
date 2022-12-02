@@ -8,9 +8,10 @@
     var user = JsonConvert.DeserializeObject<User>(userStr);
 }
 
-<h1>Detalhes do Usuário</h1>
-<h3>@user.Nome </h3>
-<div>
+<div class="container align-center formu p-3">
+    <h1>Detalhes do Usuário</h1>
+    <h3>@user.Nome </h3>
+
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -42,6 +43,6 @@
 
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-secondary" id="edit-btn">Editar</a>
     <a asp-action="Index" id="back-btn" class="btn btn-danger" id="back-btn">Voltar</a>
-</div>
+</>
 
 

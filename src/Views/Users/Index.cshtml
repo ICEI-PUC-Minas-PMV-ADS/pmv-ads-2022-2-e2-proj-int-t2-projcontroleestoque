@@ -47,10 +47,13 @@
     }
 </style>
 
-<a class="btn btn-secondary btn-lg" id="create-btn" asp-controller="Users" asp-action="Create">Cadastrar</a>
 
 <div class="p-4 table-responsive" style="background-color: #ededed; border-radius: 0.3rem; box-shadow: 0 0 1rem #aaa">
-    <h3>Usuários</h3>
+    <div class="d-flex justify-content-between" style="flex-grow: 1">   
+            <h3> Usuários</h3> 
+            <a class="btn btn-secondary " id="create-btn" asp-controller="Users" asp-action="Create">Cadastrar</a>
+    </div>
+
     <hr />
     <table class="table-bordered" id="table">
         <!-- Table Head -->

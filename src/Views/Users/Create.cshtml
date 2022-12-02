@@ -16,7 +16,7 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Documento</title>
-
+    <link rel="stylesheet" href="~/css/formularios/formularios.css" />
     <style>
         body
         {
@@ -27,9 +27,9 @@
 <body>
 
 
-    <div class="container align-center">
-
+    <div class="container align-center formu p-3" >
         <h1> Formulário de Crição de Usuário </h1>
+        <hr />
         <form enctype="multipart/form-data" asp-action="Create" asp-controller="Users" method="Post">
             <div class="mb-3">
                 <label for="nomeUsuario" class="form-label">Nome Completo </label>
@@ -67,7 +67,7 @@
                 </select>
                 <span asp-validation-for="Funcao" class="text-danger"></span>
             </div>
-
+            <hr />
             <button type="submit" class="btn btn-secondary btn-lg" id="btnCadastrar">Cadastrar</button>
             <a asp-controller="Home" asp-action="Index"> 
                 <button type="button" class="btn btn-secondary btn-lg" > Voltar </button>

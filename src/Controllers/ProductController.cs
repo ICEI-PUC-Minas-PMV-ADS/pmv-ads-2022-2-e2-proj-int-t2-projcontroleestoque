@@ -57,6 +57,8 @@ namespace ProjControleEstoque.Controllers
         // GET: Product/Create
         public IActionResult Create()
         {
+           var suppliers = _context.Suppliers.ToArray();
+            ViewData["supplierList"] = suppliers;
             return View();
         }
 
