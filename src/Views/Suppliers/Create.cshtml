@@ -3,10 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="row formu p-3">
+    <h1>Cadastro de Fornecedores</h1>
+    <hr />
 
-<h1>Cadastro de Fornecedores</h1>
-<hr />
-<div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -30,17 +30,12 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-
-            <div class="form-group m-3">
-                <label asp-for="Criado" class="control-label"></label>
-                <input asp-for="Criado" class="form-control" />
-                <span asp-validation-for="Criado" class="text-danger"></span>
-            </div>
         
             <div class="form-group m-3">
                 <label asp-for="CriadoPorId" class="control-label"></label>
                 <select asp-for="CriadoPorId" class ="form-control" asp-items="ViewBag.CriadoPorId"></select>
             </div>
+
             <div class="form-group">
                 <input type="submit" value="Cadastrar" class="btn btn-secondary btn-lg" />
                 <a class="btn btn-secondary btn-lg m-3" asp-action="Index"> Voltar a Lista</a>

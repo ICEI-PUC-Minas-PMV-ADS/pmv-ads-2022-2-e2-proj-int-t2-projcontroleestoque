@@ -3,11 +3,8 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Detalhes do Fornecedor</h1>
-
-<div>
-    
+<div class="formu p-3">
+    <h1>Detalhes do Fornecedor</h1>  
     <hr />
     <dl class="row">
         <dt class = "col-sm-3">
@@ -48,8 +45,9 @@
             @Html.DisplayFor(model => model.CriadoPor.Id)
         </dd>
     </dl>
+    <div>
+        <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.Id"> Editar </a>
+        <a class="btn btn-danger" asp-action="Index">Voltar</a>
+    </div>
 </div>
-<div>
-    <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@Model?.Id"> Editar </a>
-    <a class="btn btn-danger" asp-action="Index">Voltar</a>
-</div>
+

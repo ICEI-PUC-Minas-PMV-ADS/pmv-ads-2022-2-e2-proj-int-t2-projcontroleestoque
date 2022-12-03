@@ -3,10 +3,8 @@
 @{
     ViewData["Title"] = "Detalhes";
 }
-
-<h1>Detalhes do Produto</h1>
-
-<div>
+<div class="formu p-3">
+    <h1>Detalhes do Produto</h1>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -58,8 +56,9 @@
             @Html.DisplayFor(model => model.Validade)
         </dd>
     </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-secondary" id="edit-btn">Editar</a>
+        <a asp-action="Index" id="back-btn" class="btn btn-danger" id="back-btn">Voltar</a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-secondary" id="edit-btn">Editar</a>
-    <a asp-action="Index" id="back-btn" class="btn btn-danger" id="back-btn">Voltar</a>
-</div>
+

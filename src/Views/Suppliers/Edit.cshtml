@@ -11,11 +11,10 @@
     }
 </style>
 
+<div class="row m-3 formu p-3">
+    <h1>Edição do Fornecedor</h1>
+    <hr />
 
-<h1>Edição do Fornecedor</h1>
-
-<hr />
-<div class="row m-3">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -40,16 +39,13 @@
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Criado" class="control-label"></label>
-                <input asp-for="Criado" class="form-control" />
-                <span asp-validation-for="Criado" class="text-danger"></span>
-            </div>
+           
             <div class="form-group">
                 <label asp-for="CriadoPorId" class="control-label"></label>
                 <select asp-for="CriadoPorId" class="form-control" asp-items="ViewBag.CriadoPorId"></select>
                 <span asp-validation-for="CriadoPorId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input class="a-btn btn btn-secondary" type="submit" value="Alterar" />
                 <a class="a-btn btn btn-danger" asp-action="Index">Voltar</a>
