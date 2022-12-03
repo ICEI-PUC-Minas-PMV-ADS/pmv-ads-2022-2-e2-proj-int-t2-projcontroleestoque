@@ -64,7 +64,6 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 | RF-003 |  O sistema deve possuir um meio de consulta para encontrar os produtos por nome, categoria, código ou fornecedor    | ALTA      |
 | RF-004 | O sistema deve permitir visualizar as informações dos produtos    | ALTA      |
 | RF-005 | O sistema deve permitir alteração das informações do produto    | ALTA      |
-| RF-006 |  O sistema deve permitir ao Superior aprovar ou rejeitar alterações nas informações dos produtos    | ALTA      |
 | RF-007 | O sistema deve receber entrada e saída de produtos e modificar na quantidade deste    | ALTA      |
 | RF-008 |  O sistema deve gerar relatórios após o usuário fazer Login com as reposições e saída de produtos    | ALTA      |
 | RF-009 | O sistema deve gerar relatório sobre o inventário para o Superior     | ALTA      |
@@ -75,9 +74,6 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 | RF-014 | O sistema deve informar a perda de produtos    | MÉDIA      |
 | RF-015 | O sistema deve permitir cadastrar, visualizar e alterar informações sobre o fornecedor   | MÉDIA      |
 | RF-016 | O sistema deve registrar a solicitação de reposição   | ALTA      |
-| RF-017 | O sistema deve permitir a edição da reposição de estoque    | ALTA      |
-| RF-018 | O sistema deve permitir ao Supervisor aprovar ou rejeitar a solicitação de reposição    | ALTA      |
-| RF-019 | O sistema deve informar a situação do pagamento da reposição     | MÉDIA      |
 | RF-020 | O sistema deve registrar o inventario. | ALTA |
 
 
