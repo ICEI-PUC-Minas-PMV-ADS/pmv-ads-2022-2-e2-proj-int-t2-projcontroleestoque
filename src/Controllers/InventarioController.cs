@@ -54,19 +54,35 @@ namespace ProjControleEstoque.Controllers
 
             if (user.Funcao != "administrador")
             {
-                return RedirectToAction("FazerInventario");
-            }
-            var results = _appDbContext.AgendaInventarios?.ToArray();
-
-            if (results != null)
-            {
-                foreach (var r in results)
+                var agendaInventarios = _appDbContext.AgendaInventarios?.ToArray();
+                if (agendaInventarios != null)
                 {
-                    _appDbContext.Entry(r).Reference(x => x.SolicitadoPor).Load();
-                    _appDbContext.Entry(r).Reference(x => x.Inventario).Load();
+                    foreach (var r in agendaInventarios)
+                    {
+                        _appDbContext.Entry(r).Reference(x => x.SolicitadoPor).Load();
+                        _appDbContext.Entry(r).Reference(x => x.Inventario).Load();
+                    }                    
+                    ViewData["agendaInventarios"] = agendaInventarios;
                 }
-                ViewData["results"] = results;
+                ViewData["is_admin"] = true;
             }
+            else
+            {
+                ViewData["is_admin"] = false;
+            }
+
+            var inventarios = _appDbContext.Inventarios?.ToArray();
+            if (inventarios != null)
+            {
+                foreach (var i in inventarios)
+                {
+                    _appDbContext.Entry(i).Reference(x => x.SolicitadoPor).Load();
+                    _appDbContext.Entry(i).Reference(x => x.RealizadoPor).Load();
+                }
+            }
+
+            ViewData["inventarios"] = inventarios;
+
             return View();
         }
 
@@ -187,6 +203,28 @@ namespace ProjControleEstoque.Controllers
             return Ok(Json(new {
                 status = 200,
                 data = bodyParams,
+            }));
+        }
+
+        public IActionResult GetInventoryItems([FromQuery] int? id) {
+            var inventoryItems = _appDbContext.ItemInventarios?.Where(x => x.InventarioId == id).ToArray();
+
+            if (inventoryItems != null) {
+                foreach (var i in inventoryItems)
+                {
+                    _appDbContext.Entry(i).Reference(x => x.Produto).Load();
+                    if (i.Produto != null)
+                    {
+                        _appDbContext.Entry(i.Produto).Reference(x => x.Fornecedor).Load();
+                    }
+                }
+            }
+
+            return Ok(Json(new {
+                status = 200,
+                data = new {
+                    results = inventoryItems,
+                }
             }));
         }
 

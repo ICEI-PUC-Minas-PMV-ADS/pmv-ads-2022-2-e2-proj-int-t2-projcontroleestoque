@@ -71,7 +71,7 @@ namespace ProjControleEstoque.Controllers
                 return RedirectToAction("Login", "Users");
             }
 
-            var results = _appDbContext.Products?.Skip(Offset).Take(Limit).ToArray();
+            var results = _appDbContext.Products?.OrderBy(x => x.Id).Skip(Offset).Take(Limit).ToArray();
             var totalCount = _appDbContext.Products?.Count();
             var count = results?.Length;
 
@@ -172,6 +172,7 @@ namespace ProjControleEstoque.Controllers
                     .Where(x =>
                         x.Nome.Contains(q) || x.Descricao.Contains(q) || x.Tags.Contains(q) || x.Fornecedor.Contains(q)
                     )
+                    .OrderBy(x => x.Id)
                     .Skip(Offset)
                     .Take(Limit)
                     .ToArray();
@@ -185,7 +186,7 @@ namespace ProjControleEstoque.Controllers
                 }));
             }
 
-            var allProducts = _appDbContext.Products?.Take(Limit).Skip(Offset).ToArray();
+            var allProducts = _appDbContext.Products?.OrderBy(x => x.Id).Take(Limit).Skip(Offset).ToArray();
             return Ok(Json(new {
                 status = 200,
                 products = allProducts,

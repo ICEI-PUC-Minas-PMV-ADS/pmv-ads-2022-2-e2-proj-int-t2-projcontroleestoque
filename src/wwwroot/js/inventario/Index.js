@@ -6,45 +6,50 @@
     const selector = document.getElementById('inventario_type');
 
     initInventarioMensal();
+    initInventarioItems();
 
-    selector.addEventListener('change', function () {
-        const selected_option = selector.value;
+    if (selector !== null) {
+        selector.addEventListener('change', function () {
+            const selected_option = selector.value;
 
-        switch (selected_option) {
-            case 'Periodico semanal':
-                form_periodico_semanal.style.display = 'block';
-                form_periodico_mensal.style.display = 'none';
-                form_extraordinario.style.display = 'none';
-                container_botao.style.display = 'block';
-                break;
+            switch (selected_option) {
+                case 'Periodico semanal':
+                    form_periodico_semanal.style.display = 'block';
+                    form_periodico_mensal.style.display = 'none';
+                    form_extraordinario.style.display = 'none';
+                    container_botao.style.display = 'block';
+                    break;
 
-            case 'Periodico mensal':
-                form_periodico_semanal.style.display = 'none';
-                form_periodico_mensal.style.display = 'block';
-                form_extraordinario.style.display = 'none';
-                container_botao.style.display = 'block';
-                break;
+                case 'Periodico mensal':
+                    form_periodico_semanal.style.display = 'none';
+                    form_periodico_mensal.style.display = 'block';
+                    form_extraordinario.style.display = 'none';
+                    container_botao.style.display = 'block';
+                    break;
 
-            case 'Extraordinario':
-                form_periodico_semanal.style.display = 'none';
-                form_periodico_mensal.style.display = 'none';
-                form_extraordinario.style.display = 'block';
-                container_botao.style.display = 'block';
-                break;
-        }
-    });
+                case 'Extraordinario':
+                    form_periodico_semanal.style.display = 'none';
+                    form_periodico_mensal.style.display = 'none';
+                    form_extraordinario.style.display = 'block';
+                    container_botao.style.display = 'block';
+                    break;
+            }
+        });
+    }
 
     const confirmButton = document.getElementById('confirm_button');
 
-    confirmButton.addEventListener('click', function () {
-        const selected_option = selector.value;
+    if (confirmButton !== null) {
+        confirmButton.addEventListener('click', function () {
+            const selected_option = selector.value;
 
-        switch (selected_option) {
-            case 'Periodico semanal': return sendPeriodicoSemanal();
-            case 'Periodico mensal':  return sendPeriodicoMensal();
-            case 'Extraordinario':    return sendExtraordinario();
-        }
-    });
+            switch (selected_option) {
+                case 'Periodico semanal': return sendPeriodicoSemanal();
+                case 'Periodico mensal': return sendPeriodicoMensal();
+                case 'Extraordinario': return sendExtraordinario();
+            }
+        });
+    }
 });
 
 function initInventarioMensal() {
@@ -57,7 +62,28 @@ function initInventarioMensal() {
         child.value = i;
         child.innerText = i;
 
-        selector.appendChild(child);
+        if (selector !== null) {
+            selector.appendChild(child);
+        }
+    }
+}
+
+function initInventarioItems() {
+    const items = document.querySelectorAll('.c-item-inventory');
+
+    if (items !== null) {
+        items.forEach(item => {
+            item.addEventListener('click', function () {
+                const id = item?.dataset['id'];
+                if (id !== null) {
+                    let action = fetch('/Inventario/GetInventoryItems?id=' + id);
+
+                    action = action.then((response) => response.json());
+                    action = action.then((response) => processGetInventory(response.value));
+                    action = action.then(() => $('#viewInventarioItems').modal('show'));
+                }
+            });
+        });
     }
 }
 
@@ -148,4 +174,28 @@ function sendExtraordinario() {
             window.location.reload();
         }
     });
+}
+
+/***
+ * Eventos
+ */
+
+function processGetInventory({ status, data }) {
+    if (status === 200) {
+        const body = document.getElementById('inventoryItemList');
+        if (body !== null) {
+            const container = document.getElementById('inventoryItemList');
+            const checkStatus = (status) => status === 'Está em conformidade' ? 'green' : 'red';
+
+            const mapObject = (invItem) => createElement('tr', {}, [
+                createElement('td', {}, invItem.produto.nome),
+                createElement('td', {}, invItem.produto.fornecedor.nome),
+                createElement('td', {}, invItem.produto.quantidade),
+                createElement('td', {}, invItem.quantidade),
+                createElement('td', { style: { color: checkStatus(invItem.status) } }, invItem.status),
+            ]);
+
+            container.replaceChildren(...data.results.map((item) => mapObject(item)));
+        }
+    }
 }
