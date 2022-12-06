@@ -26,8 +26,8 @@ namespace ProjControleEstoque.Controllers
             public string? criadoEndDate { get; set; } = null;
             public string? executadoStartDate { get; set; } = null;
             public string? executadoEndDate { get; set; } = null;
-            public int offset { get; set; } = 0;
-            public int limit { get; set; } = 15;
+            public int? offset { get; set; } = 0;
+            public int? limit { get; set; } = 15;
         }
 
         public ReportsController(ILogger<ReportsController> logger, AppDbContext appDbContext)

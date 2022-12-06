@@ -67,7 +67,7 @@ namespace ProjControleEstoque.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,Quantidade,Localizacao,Tags,EstrategiaConsumo,Criado,Validade")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Descricao,Quantidade,Localizacao,Tags,EstrategiaConsumo,Criado,Validade,FornecedorId")] Product product)
         {
             if (ModelState.IsValid)
             {

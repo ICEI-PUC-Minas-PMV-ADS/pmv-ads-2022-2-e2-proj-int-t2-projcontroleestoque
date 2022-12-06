@@ -52,7 +52,7 @@ namespace ProjControleEstoque.Controllers
                 return RedirectToAction("Login", "Users");
             }
 
-            if (user.Funcao != "administrador")
+            if (user.Funcao == "administrador")
             {
                 var agendaInventarios = _appDbContext.AgendaInventarios?.ToArray();
                 if (agendaInventarios != null)
