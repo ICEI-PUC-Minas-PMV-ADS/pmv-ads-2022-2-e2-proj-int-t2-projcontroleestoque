@@ -112,7 +112,7 @@ function processSelecionarProdutoResponse({ value: { status, data } }) {
                 createElement('td', null, r.localizacao),
                 createElement('td', null, r.tags),
                 createElement('td', null, r.estrategiaConsumo),
-                createElement('td', null, r.validade)
+                createElement('td', null, r.validade),
             ]))
         );
 

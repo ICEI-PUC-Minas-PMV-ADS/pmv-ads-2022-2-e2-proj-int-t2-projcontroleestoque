@@ -175,9 +175,21 @@
                 generateTableCell(row, p, "Tags");
                 generateTableCell(row, p, "EstrategiaConsumo");
                 generateTableCell(row, p, "Validade");
+                generateMovimentacao(row, p, p.id);
 
                 return row;
             }));
+        };
+
+        const generateMovimentacao = (row, p, id) => {
+            const nomeCol = document.createElement("td");
+            const link = document.createElement('a');
+            link.className = "btn btn-secondary btn-sm";
+            link.setAttribute("href", '/Products/MoveDetails/' + id);
+            link.innerText = "Entrada/Saída";
+            nomeCol.appendChild(link);
+
+            row.appendChild(nomeCol);
         };
 
         const updateFooter = (totalCount, offset, pageCount) => {
