@@ -73,7 +73,6 @@ A tabela a seguir apresenta os requisitos do projeto, identificando a prioridade
 | RF-013 | O sistema deve permitir agendar execução periódica do inventário    | BAIXA      |
 | RF-014 | O sistema deve informar a perda de produtos    | MÉDIA      |
 | RF-015 | O sistema deve permitir cadastrar, visualizar e alterar informações sobre o fornecedor   | MÉDIA      |
-| RF-016 | O sistema deve registrar a solicitação de reposição   | ALTA      |
 | RF-020 | O sistema deve registrar o inventario. | ALTA |
 
 
