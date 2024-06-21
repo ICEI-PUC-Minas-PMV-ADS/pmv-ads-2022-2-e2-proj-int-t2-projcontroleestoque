@@ -1,0 +1,25 @@
+message: Please cite this software using these metadata.
+title: Projeto Controle Estoque
+authors:
+  - family-names: Costa Morais
+    given-names: Igor Henrique
+  - family-names: Elias Coura
+    given-names: Giovanna Maria
+  - family-names: Gomes Pinto
+    given-names: Henrique Alexandre
+  - family-names: Gomes Pinto
+    given-names: Vitor Alexandre 
+  - family-names: Martins Xavier
+    given-names: Gabriel
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Wilson da Costa
+    given-names: José
+   
+keywords:
+  - Estoque
+  - Controle
+
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2022-2-e2-proj-int-t2-projcontroleestoque
+version: 1.0.0
+date-released: 2022-11-27
